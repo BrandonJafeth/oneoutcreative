@@ -1,0 +1,74 @@
+---
+const faqs = [
+  {
+    pregunta: '¿Cuánto tiempo tarda un proyecto?',
+    respuesta: 'Depende del alcance. Un sitio web estándar puede estar listo en 2–3 semanas. Una plataforma con automatización y CRM puede tomar 4–8 semanas. Siempre te damos un cronograma claro antes de empezar.',
+  },
+  {
+    pregunta: '¿Trabajan solo con empresas grandes?',
+    respuesta: 'No. Trabajamos con negocios de todos los tamaños en Costa Rica. Desde emprendimientos hasta empresas consolidadas. Lo que importa es que tengas un objetivo claro y ganas de crecer.',
+  },
+  {
+    pregunta: '¿Qué pasa si no quedo conforme con el resultado?',
+    respuesta: 'Trabajamos con revisiones incluidas en cada etapa del proceso. No entregamos nada sin tu aprobación. Si algo no está como lo esperás, lo ajustamos.',
+  },
+  {
+    pregunta: '¿Puedo contratar solo un servicio o tengo que tomar un paquete completo?',
+    respuesta: 'Podés contratar servicios individuales. Muchos clientes empiezan con un sitio web y después suman marketing o contenido. Adaptamos la propuesta a lo que realmente necesitás.',
+  },
+  {
+    pregunta: '¿Tienen experiencia en mi industria?',
+    respuesta: 'Hemos trabajado con negocios de retail, salud, gastronomía, servicios profesionales y más. Cada proyecto empieza con un diagnóstico específico de tu industria, no con una plantilla genérica.',
+  },
+];
+---
+<section class="bg-background py-24 md:py-32">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <div class="liquid-glass rounded-full px-4 py-1.5 inline-flex items-center mb-5">
+        <span class="text-xs font-body font-semibold tracking-[0.2em] uppercase text-[#e87722]">PREGUNTAS FRECUENTES</span>
+      </div>
+      <h2 class="font-heading text-3xl md:text-5xl text-white uppercase tracking-wide text-balance">LO QUE MÁS NOS PREGUNTAN</h2>
+    </div>
+
+    <div id="faq-list">
+      {faqs.map((faq, i) => (
+        <div class={`faq-item border-b border-white/8 py-6 ${i === 0 ? 'open' : ''}`}>
+          <button class="w-full flex items-center justify-between text-left gap-4">
+            <span class="font-heading text-lg md:text-xl text-white uppercase tracking-wide">{faq.pregunta}</span>
+            <span class="faq-icon text-[#e87722] text-2xl font-light flex-shrink-0 transition-transform duration-300 leading-none">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="font-body font-light text-sm text-white/55 leading-relaxed mt-3">{faq.respuesta}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .faq-item.open .faq-answer {
+    max-height: 300px;
+  }
+  .faq-item.open .faq-icon {
+    transform: rotate(45deg);
+  }
+</style>
+
+<script>
+  const items = document.querySelectorAll<HTMLElement>('.faq-item');
+  items.forEach((item) => {
+    const btn = item.querySelector('button');
+    btn?.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      items.forEach((el) => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>

@@ -1,0 +1,139 @@
+---
+const NAV_LINKS = [
+  { label: 'Audiovisual', href: '#audiovisual' },
+  { label: 'Marketing', href: '#marketing' },
+  { label: 'Sistemas Web', href: '#sistemas-web' },
+  { label: 'Diseño & Marca', href: '#diseno' },
+];
+---
+<nav id="main-nav" class="font-body" style="position: fixed; top: 20px; left: 0; right: 0; z-index: 50; display: flex; justify-content: center; padding: 0 16px; transition: top .3s ease; color: var(--fg);">
+  <div class="nav-shell" style="display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 10px 10px 10px 16px; max-width: 980px; width: 100%; transition: max-width .35s ease, padding .35s ease; border-radius: 9999px; background: rgba(var(--fg-rgb) / 0.03); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+    
+    <div style="display: flex; align-items: center; gap: 18px;">
+      <!-- Logo -->
+      <a href="#top" aria-label="Volver arriba" style="display: inline-flex; align-items: center; flex-shrink: 0; color: inherit; text-decoration: none;">
+        <img src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779290752/Logo_blanco_1_kintyq.png" alt="One Out Creative" id="nav-logo" style="display: block; width: 38px; height: 38px; object-fit: contain; filter: invert(0);" />
+      </a>
+
+      <span class="nav-sep hidden md:block" style="width: 1px; height: 20px; background: currentColor; opacity: 0.15; flex-shrink: 0;"></span>
+
+      <!-- Desktop Links -->
+      <div class="nav-links hidden md:flex" style="align-items: center; gap: 4px;">
+        {NAV_LINKS.map((link) => (
+          <a
+            href={link.href}
+            class="nav-link"
+            style="font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 14px; border-radius: 9999px; color: var(--muted); background: transparent; text-decoration: none; cursor: pointer; transition: color .2s, background .25s;"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA & Hamburger -->
+    <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+      <a href="https://wa.me/50600000000" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <span class="cta-text hidden md:inline">Contactar</span>
+      </a>
+
+      <!-- Hamburger Button (Mobile Only) -->
+      <button id="menu-btn" class="md:hidden" aria-label="Abrir menú" style="background: none; border: none; color: var(--fg); cursor: pointer; padding: 8px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="12" x2="20" y2="12" class="line1" style="transform-origin: center; transition: transform 0.3s, opacity 0.3s;"></line>
+          <line x1="4" y1="6" x2="20" y2="6" class="line2" style="transform-origin: center; transition: transform 0.3s;"></line>
+          <line x1="4" y1="18" x2="20" y2="18" class="line3" style="transform-origin: center; transition: transform 0.3s;"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" style="position: fixed; inset: 0; background: var(--bg); z-index: -1; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 24px;">
+    <div class="mobile-links flex flex-col items-center gap-6" style="transform: translateY(20px); transition: transform 0.4s ease;">
+      {NAV_LINKS.map((link) => (
+        <a
+          href={link.href}
+          class="mobile-nav-link font-heading"
+          style="font-size: 2.5rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--fg); text-decoration: none;"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Mobile Menu Open State */
+  .menu-open #mobile-menu {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  .menu-open #mobile-menu .mobile-links {
+    transform: translateY(0) !important;
+  }
+  .menu-open .line1 { opacity: 0; }
+  .menu-open .line2 { transform: translateY(6px) rotate(45deg); }
+  .menu-open .line3 { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Desktop overrides */
+  @media (min-width: 768px) {
+    #mobile-menu { display: none !important; }
+    .md\:hidden { display: none !important; }
+    .md\:block { display: block !important; }
+    .md\:flex { display: flex !important; }
+    .md\:inline { display: inline !important; }
+  }
+</style>
+
+<script>
+  // Navbar scroll logic
+  const nav = document.getElementById('main-nav');
+  const navShell = nav?.querySelector('.nav-shell') as HTMLElement;
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  
+  if (nav && navShell) {
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY > 20;
+      nav.style.top = scrolled ? '12px' : '20px';
+      navShell.style.maxWidth = scrolled ? '880px' : '980px';
+      navShell.style.padding = scrolled ? '8px 10px 8px 14px' : '10px 10px 10px 16px';
+    });
+  }
+
+  // Mobile Menu Toggle
+  if (menuBtn && nav) {
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('menu-open');
+      document.body.style.overflow = nav.classList.contains('menu-open') ? 'hidden' : '';
+    });
+  }
+
+  // Close menu on link click
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (nav) nav.classList.remove('menu-open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Hover effects for desktop links
+  const navLinks = document.querySelectorAll('.nav-link') as NodeListOf<HTMLElement>;
+  navLinks.forEach(link => {
+    link.addEventListener('mouseenter', (e) => {
+      const el = e.currentTarget as HTMLElement;
+      el.style.color = 'var(--fg)';
+      el.style.background = 'rgba(var(--fg-rgb) / 0.06)';
+    });
+    link.addEventListener('mouseleave', (e) => {
+      const el = e.currentTarget as HTMLElement;
+      el.style.color = 'var(--muted)';
+      el.style.background = 'transparent';
+    });
+  });
+</script>

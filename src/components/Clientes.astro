@@ -1,0 +1,49 @@
+---
+const items = [
+  "FERRETERÍA EL MAESTRO",
+  "BOUTIQUE LUNA",
+  "CLÍNICA DENTAL SOLANO",
+  "GRUPO MONTOYA",
+  "TECH CR",
+  "INVERSIONES VARGAS",
+  "RESTAURANTE LA CEIBA",
+  "CONSTRUCTORA DEL ESTE",
+];
+const doubled = [...items, ...items];
+---
+<section style="background: var(--bg); padding: clamp(40px, 8vw, 96px) 0; position: relative;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; text-align: center; margin-bottom: clamp(32px, 5vw, 56px);">
+    <div class="reveal-hidden delay-0">
+      <div class="eyebrow"><span class="dot"></span>Clientes</div>
+    </div>
+    <div class="reveal-hidden delay-1">
+      <h2 class="sec-heading" style="margin-top: 14px;">Empresas que crecieron con nosotros</h2>
+    </div>
+  </div>
+
+  <div class="reveal-hidden delay-2">
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        {doubled.map((it) => (
+          <span class="font-heading" style="font-size: 1.25rem; letter-spacing: 0.18em; color: var(--muted); white-space: nowrap; display: inline-flex; align-items: center; gap: 2.5rem;">
+            {it}
+            <span style="color: var(--accent); font-size: 1rem;">·</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-visible');
+        entry.target.classList.remove('reveal-hidden');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  
+  document.querySelectorAll('.reveal-hidden').forEach(el => observer.observe(el));
+</script>

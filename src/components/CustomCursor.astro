@@ -1,0 +1,65 @@
+---
+---
+<div id="cursor-blob" class="cursor-blob" style="opacity:0;"></div>
+
+<style>
+  .cursor-blob {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    /* Utilizamos color-mix para heredar la transparencia dinámicamente desde tu variable --accent */
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 15%, transparent), transparent 60%);
+    filter: blur(40px);
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    left: 50%;
+    top: 50%;
+  }
+
+  :global(html.light) .cursor-blob {
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 22%, transparent), transparent 60%);
+  }
+
+  @media (pointer: coarse) {
+    .cursor-blob {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  const blob = document.getElementById('cursor-blob');
+  
+  if (blob && window.matchMedia("(pointer: fine)").matches) {
+    let raf = 0;
+    let tx = window.innerWidth / 2;
+    let ty = window.innerHeight / 2;
+    let x = tx;
+    let y = ty;
+
+    const onMove = (e) => {
+      tx = e.clientX;
+      ty = e.clientY;
+      blob.style.opacity = '1';
+    };
+
+    const onLeave = () => {
+      blob.style.opacity = '0';
+    };
+
+    const loop = () => {
+      x += (tx - x) * 0.12;
+      y += (ty - y) * 0.12;
+      blob.style.left = x + "px";
+      blob.style.top = y + "px";
+      raf = requestAnimationFrame(loop);
+    };
+
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseleave', onLeave);
+    raf = requestAnimationFrame(loop);
+  }
+</script>

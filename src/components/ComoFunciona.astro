@@ -1,0 +1,94 @@
+---
+const pasos = [
+  { n: "01", t: "Diagnóstico", d: "Analizamos tu negocio, tu competencia y tus objetivos reales. Nada de plantillas — todo parte de entender qué necesitás vos." },
+  { n: "02", t: "Estrategia", d: "Diseñamos la solución digital que más impacto genera para tu caso. Cada decisión tiene un porqué claro." },
+  { n: "03", t: "Ejecución", d: "Desarrollamos, lanzamos y medimos. Velocidad sin sacrificar calidad. Lista para captar desde el primer día." },
+  { n: "04", t: "Crecimiento", d: "Iteramos con datos reales. Optimizamos lo que funciona, corregimos lo que no. Mejoramos mes a mes." },
+];
+---
+<section id="proceso" style="background: var(--card); padding: clamp(60px, 10vw, 120px) 24px; position: relative;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div style="gap: 24px; align-items: end; margin-bottom: 56px;" class="grid md:grid-cols-2 grid-cols-1">
+      <div class="reveal-hidden delay-0">
+        <div class="eyebrow"><span class="dot"></span>Nuestro Proceso</div>
+        <h2 class="sec-heading" style="margin-top: 14px;">De la idea<br /> al resultado</h2>
+      </div>
+      <div class="reveal-hidden delay-1 md:text-right">
+        <p style="font-weight: 300; color: var(--muted); font-size: 1rem; line-height: 1.65; max-width: 420px; font-family: var(--font-body);" class="md:ml-auto ml-0 mt-2 md:mt-0 text-left md:text-right">
+          Un proceso claro, sin vueltas. Sabés exactamente qué pasa en cada etapa, con entregables y métricas a la vista.
+        </p>
+      </div>
+    </div>
+
+    <!-- Desktop timeline -->
+    <div class="timeline-desktop" style="display: flex; align-items: flex-start; gap: 0; margin-top: 32px;">
+      {pasos.map((s, i) => (
+        <div class="contents" style="display: contents;">
+          <div class="reveal-hidden timeline-step" style={`transition-delay: ${i * 0.12}s; display: flex; flex-direction: column; width: 220px; padding-right: 0px;`}>
+            <div style="display: flex; align-items: center; gap: 28px; margin-bottom: 16px;">
+              <span class="step-num" style={`color: ${i === 0 ? "var(--accent)" : "rgb(var(--fg-rgb) / 0.18)"}`}>{s.n}</span>
+              <span style="flex: 1; height: 1px; background: var(--hairline);"></span>
+            </div>
+            <div class="font-heading" style="font-size: 1.5rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fg); margin-bottom: 10px;">{s.t}</div>
+            <p style="font-weight: 300; font-size: 0.86rem; line-height: 1.65; color: var(--muted); margin: 0; max-width: 90%;">{s.d}</p>
+          </div>
+          {i < pasos.length - 1 ? (
+            <div class="timeline-connector" style="flex: 1; min-width: 24px; height: 1px; background: var(--hairline); margin-top: calc((4.4rem - 1px) / 2); margin-right: 28px; position: relative;">
+              <span style={`position: absolute; right: -3px; top: -3px; width: 7px; height: 7px; border-radius: 50%; background: ${i === 0 ? "var(--accent)" : "var(--hairline-strong)"}`}></span>
+            </div>
+          ) : null}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.6rem, 6vw, 5rem);
+    line-height: 0.85; letter-spacing: 0.02em;
+    transition: color .3s;
+  }
+  .timeline-step:hover .step-num { color: var(--accent) !important; }
+
+  @media (max-width: 880px) {
+    .timeline-desktop {
+      flex-direction: column;
+      gap: 0 !important;
+      border-left: 1px solid var(--hairline);
+      padding-left: 24px;
+      margin-left: 8px;
+    }
+    .timeline-step {
+      width: 100% !important;
+      padding-right: 0 !important;
+      padding-bottom: 36px;
+    }
+    .timeline-step:not(:first-child) {
+      padding-top: 0;
+    }
+    .timeline-connector {
+      display: none;
+    }
+    .contents {
+      display: block;
+      width: 100%;
+    }
+    /* Hide the line part inside the step on mobile if desired */
+    .timeline-step div > span[style*="background"] { display: none; }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-visible');
+        entry.target.classList.remove('reveal-hidden');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  
+  document.querySelectorAll('.reveal-hidden').forEach(el => observer.observe(el));
+</script>

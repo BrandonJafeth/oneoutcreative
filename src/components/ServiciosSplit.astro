@@ -1,0 +1,88 @@
+---
+const services = [
+  {
+    eyebrow: "Contenido",
+    kind: "Producción Audiovisual",
+    title: "Contenido que impacta visualmente",
+    body: "Fotografía, video y dirección de arte que transmiten tu esencia con estilo. Alto nivel visual diseñado para generar atención inmediata.",
+    image: "https://res.cloudinary.com/dxvbifdfb/image/upload/v1768681994/gallery/ol28g8i9sl4doaxnotj3.jpg",
+  },
+  {
+    eyebrow: "Estrategia",
+    kind: "Marketing Digital",
+    title: "Hacemos que te encuentren",
+    body: "Redes sociales, campañas en Google y estrategias de ventas reales. Cada anuncio tiene un propósito medible enfocado en multiplicar resultados.",
+    image: "https://res.cloudinary.com/dxvbifdfb/image/upload/v1768702185/gallery/wntzftpd5lsnswt8ze4e.jpg",
+  },
+  {
+    eyebrow: "Soporte",
+    kind: "Web & Marca",
+    title: "Sitios web y Branding Inolvidable",
+    body: "Plataformas optimizadas y diseño de identidad que refuerzan tu posición. El complemento perfecto para cerrar más tratos digitalmente.",
+    image: "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777499085/520shots_so_lfogrw.jpg",
+  },
+];
+---
+<section id="servicios" style="background: var(--bg); padding: clamp(60px, 10vw, 120px) 24px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: 1fr; gap: 20px; align-items: end; margin-bottom: 56px;">
+      <div class="reveal-hidden delay-0">
+        <div class="eyebrow"><span class="dot"></span>Lo que hacemos</div>
+        <h2 class="sec-heading" style="margin-top: 14px; max-width: 800px;">Todo lo que tu negocio necesita</h2>
+        <p style="font-weight: 300; color: var(--muted); font-size: 1.05rem; line-height: 1.65; max-width: 600px; margin-top: 24px; font-family: var(--font-body); text-wrap: pretty;">
+          Creación audiovisual de primera línea y marketing como enfoque principal, respaldado por sitios web optimizados y un diseño de marca memorable.
+        </p>
+      </div>
+    </div>
+
+    {services.map((s, i) => (
+      <div class="reveal-hidden delay-0">
+        <div class={`split-panel ${i % 2 === 1 ? "reverse" : ""}`}>
+          <div class="split-content">
+            <div class="eyebrow accent" style="margin-bottom: 18px;">{s.eyebrow}</div>
+            <h3 class="font-heading" style="font-size: clamp(2rem, 4vw, 3.4rem); line-height: 0.95; letter-spacing: 0.01em; text-transform: uppercase; color: var(--fg); margin: 0;">
+              {s.title}
+            </h3>
+            <p style="margin-top: 22px; font-weight: 300; font-size: 1rem; line-height: 1.7; color: var(--muted); max-width: 460px; font-family: var(--font-body);">
+              {s.body}
+            </p>
+            <button class="btn-link" style="margin-top: 28px;">
+              Conocer más
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="split-visual">
+            <div class="service-image-wrap">
+              <img src={s.image} alt={s.title} loading="lazy" />
+              <div class="img-overlay"></div>
+              <span class="corner-idx">{String(i + 1).padStart(2, "0")} / 03</span>
+              <div class="meta-bottom" style="position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap;">
+                <span class="badge-orange" style="position: static;">{s.kind}</span>
+                <span class="meta-row" style="position: static;"><span class="dot"></span>San José · CR</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-visible');
+        entry.target.classList.remove('reveal-hidden');
+        
+        // Also trigger image scale effect if applicable
+        const imgWrap = entry.target.querySelector('.service-image-wrap');
+        if (imgWrap) imgWrap.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
+  
+  document.querySelectorAll('.reveal-hidden').forEach(el => observer.observe(el));
+</script>

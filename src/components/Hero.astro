@@ -1,0 +1,92 @@
+---
+const VIDEO_MP4 = 'https://res.cloudinary.com/dkwvaxxdw/video/upload/v1779291255/8126637-hd_1920_1080_25fps_knqueu.mp4';
+const HERO_POSTER = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779291512/pexels-silverkblack-36697542_gbzfwm.jpg';
+---
+<section id="top" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(120px, 15vh, 160px) 0 clamp(120px, 20vh, 160px); overflow: hidden;">
+  <div class="hero-bg" aria-hidden="true">
+    <!-- Video background -->
+    <video autoplay muted loop playsinline poster={HERO_POSTER} aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-40">
+      <source src={VIDEO_MP4} type="video/mp4" />
+    </video>
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.95) 100%); pointer-events: none;"></div>
+    <div style="position: absolute; inset: 0; background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 28px 28px; pointer-events: none;"></div>
+  </div>
+
+  <div style="position: relative; z-index: 3; text-align: center; padding: 0 24px; max-width: 1200px; margin: 0 auto; width: 100%;">
+    <h1 class="hero-heading" style="margin-top: 0; color: #fff;">
+      <span style="display: block; overflow: hidden;">
+        <span class="reveal-hidden delay-1" style="display: inline-block; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,0.35);">TU MARCA</span>
+      </span>
+      <span style="display: block; overflow: hidden;">
+        <span class="reveal-hidden delay-2" style="display: inline-block; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,0.35);">HECHA PARA</span>
+      </span>
+      <span style="display: block; overflow: hidden;">
+        <span class="reveal-hidden delay-3" style="display: inline-block; color: var(--accent); text-shadow: 0 2px 30px rgba(232,119,34,0.35);">DOMINAR.</span>
+      </span>
+    </h1>
+
+    <div class="reveal-hidden delay-4">
+      <p style="font-weight: 300; font-size: 1.05rem; line-height: 1.65; color: rgba(255,255,255,0.78); max-width: 600px; margin: 24px auto 0; text-wrap: pretty; text-shadow: 0 1px 12px rgba(0,0,0,0.4); font-family: var(--font-body);">
+        Creamos contenido audiovisual de alto nivel y estrategias de marketing que atrapan la atención.<br />
+        Producción profesional enfocada en multiplicar el alcance y las metas de tu marca.
+      </p>
+    </div>
+
+    <div class="reveal-hidden delay-5" style="display: inline-flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; justify-content: center;">
+      <a href="https://wa.me/50600000000" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        Hablemos por WhatsApp
+      </a>
+      <a href="#proyectos" class="btn-ghost liquid-glass-strong" style="color: #fff;">Ver Proyectos</a>
+    </div>
+  </div>
+
+  <div style="position: absolute; bottom: clamp(20px, 4vh, 40px); left: 50%; transform: translateX(-50%); z-index: 3; text-align: center;">
+    <div style="font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 10px; font-family: var(--font-body);">Scroll</div>
+    <div class="scroll-line-track" style="background: rgba(255,255,255,0.18); width: 1px; height: 32px; overflow: hidden; position: relative; margin: 0 auto;">
+      <span class="scroll-anim" style="display: block; width: 100%; height: 100%; background: #fff;"></span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hero-bg::before {
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 50%;
+    left: 15%;
+    top: 40%;
+    background: radial-gradient(ellipse 60% 50%, var(--accent), transparent);
+    opacity: 0.10;
+    filter: blur(90px);
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-visible');
+        entry.target.classList.remove('reveal-hidden');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  
+  document.querySelectorAll('.reveal-hidden').forEach(el => observer.observe(el));
+</script>

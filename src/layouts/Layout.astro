@@ -1,23 +1,44 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+---
+import '../styles/global.css';
+import ThemeTweaks from "../components/ThemeTweaks.tsx";
+import CustomCursor from "../components/CustomCursor.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'One Out Creative — Agencia Digital en Costa Rica',
+  description = 'Sistemas web, marketing digital y producción audiovisual para negocios en Costa Rica.',
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" />
+  <title>{title}</title>
+</head>
+<body class="bg-background text-foreground antialiased">
+  <CustomCursor />
+  <slot />
+  <ThemeTweaks client:load />
+</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '-80px' }
+  );
+  document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+</script>
