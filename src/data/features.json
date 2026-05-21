@@ -1,0 +1,32 @@
+[
+  {
+    "titulo": "Producción Audiovisual",
+    "texto": "Video, fotografía y contenido que comunican tu marca con claridad y estilo. Contenido que dispara tu engagement.",
+    "icon": "video"
+  },
+  {
+    "titulo": "Marketing Digital",
+    "texto": "Estrategias de crecimiento en redes sociales, Google y email que generan resultados reales, no solo likes.",
+    "icon": "barchart"
+  },
+  {
+    "titulo": "Sistemas Web",
+    "texto": "Sitios y plataformas que convierten visitantes en clientes. Rápidos, funcionales y diseñados para vender.",
+    "icon": "globe"
+  },
+  {
+    "titulo": "Diseño & Marca",
+    "texto": "Identidad visual, branding y UI/UX que comunican quién sos. Del logo a la experiencia completa del usuario.",
+    "icon": "layers"
+  },
+  {
+    "titulo": "Automatización",
+    "texto": "Sistemas que trabajan por vos las 24 horas. CRMs, flujos automáticos y herramientas que ahorran tiempo y dinero.",
+    "icon": "settings"
+  },
+  {
+    "titulo": "SEO & Posicionamiento",
+    "texto": "Aparecer primero en Google cuando tus clientes te buscan. Tráfico orgánico que crece mes a mes.",
+    "icon": "search"
+  }
+]

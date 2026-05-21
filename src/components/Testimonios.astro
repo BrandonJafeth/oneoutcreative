@@ -1,7 +1,9 @@
 ---
-const t1 = { q: "Antes teníamos una web que nadie visitaba. Con One Out Creative pasamos a recibir consultas todos los días. El proceso fue claro, rápido y los resultados superaron lo que esperábamos.", n: "Carlos Méndez", r: "Fundador, Ferretería El Maestro" };
-const t2 = { q: "En tres meses duplicamos las ventas de nuestra tienda online. El equipo sabe lo que hace y se nota desde la primera reunión.", n: "Valeria Rodríguez", r: "Directora, Boutique Luna" };
-const t3 = { q: "Lo que más valoro es que no te venden humo. Te explican qué van a hacer, por qué, y te muestran los números. Eso genera confianza.", n: "Andrés Solano", r: "Gerente, Clínica Dental Solano" };
+import testimonios from '../data/testimonios.json';
+const [t1raw, t2raw, t3raw] = testimonios;
+const t1 = { q: t1raw.quote, n: t1raw.name, r: t1raw.role, metric: t1raw.metric };
+const t2 = { q: t2raw.quote, n: t2raw.name, r: t2raw.role };
+const t3 = { q: t3raw.quote, n: t3raw.name, r: t3raw.role };
 ---
 <section id="proyectos" style="background: var(--card); padding: clamp(60px, 10vw, 120px) 24px;">
   <div style="max-width: 1200px; margin: 0 auto;">
@@ -27,8 +29,8 @@ const t3 = { q: "Lo que más valoro es que no te venden humo. Te explican qué v
               <div style="font-size: 0.74rem; color: var(--soft-text); font-weight: 300; margin-top: 4px;">{t1.r}</div>
             </div>
             <div style="display: inline-flex; gap: 14px; align-items: center;">
-              <div style="font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--accent);">+340%</div>
-              <div style="font-size: 0.62rem; letter-spacing: 0.2em; color: var(--soft-text); text-transform: uppercase;">Leads / mes</div>
+              <div style="font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--accent);">{t1.metric?.value}</div>
+              <div style="font-size: 0.62rem; letter-spacing: 0.2em; color: var(--soft-text); text-transform: uppercase;">{t1.metric?.label}</div>
             </div>
           </div>
         </div>

@@ -1,0 +1,18 @@
+[
+  {
+    "quote": "Antes teníamos una web que nadie visitaba. Con One Out Creative pasamos a recibir consultas todos los días. El proceso fue claro, rápido y los resultados superaron lo que esperábamos.",
+    "name": "Carlos Méndez",
+    "role": "Fundador, Ferretería El Maestro",
+    "metric": { "value": "+340%", "label": "Leads / mes" }
+  },
+  {
+    "quote": "En tres meses duplicamos las ventas de nuestra tienda online. El equipo sabe lo que hace y se nota desde la primera reunión.",
+    "name": "Valeria Rodríguez",
+    "role": "Directora, Boutique Luna"
+  },
+  {
+    "quote": "Lo que más valoro es que no te venden humo. Te explican qué van a hacer, por qué, y te muestran los números. Eso genera confianza.",
+    "name": "Andrés Solano",
+    "role": "Gerente, Clínica Dental Solano"
+  }
+]
