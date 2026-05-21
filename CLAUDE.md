@@ -26,6 +26,21 @@ Astro 6 project with Tailwind CSS v4 (via `@tailwindcss/vite` plugin — no `tai
 
 **Component order in `index.astro`:** Navbar → Hero → ComoFunciona → FeaturesGrid → Testimonios → FAQ → CtaFooter
 
+## Content editing
+
+Section content lives in `src/data/` as JSON — edit these files, not the components:
+
+| File | Section |
+|------|---------|
+| `src/data/faqs.json` | FAQ |
+| `src/data/testimonios.json` | Testimonios (quote, name, role, metric) |
+| `src/data/features.json` | FeaturesGrid (titulo, texto, icon) |
+| `src/data/pasos.json` | ComoFunciona steps |
+| `src/data/clientes.json` | Clientes marquee |
+| `src/data/servicios.json` | ServiciosSplit (eyebrow, kind, title, body, image) |
+
+Components import from JSON — never hardcode data in `.astro` files.
+
 ## Tailwind v4 — CSS-first config
 
 Theme tokens live in `src/styles/global.css` under `@theme`. No JS config file:
