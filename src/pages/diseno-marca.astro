@@ -46,10 +46,10 @@ const services = [
 
         <div class="hero-visual">
           <div class="reveal-hidden visual-img img-1" style="transition-delay: 0.2s;">
-            <img src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779746540/marca_r85ztz.jpg?q=80&w=800&auto=format&fit=crop" alt="Diseño de marca caja" loading="lazy" />
+            <img src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779746540/marca_r85ztz.jpg?q=80&w=800&auto=format&fit=crop" alt="Diseño de marca caja" fetchpriority="high" decoding="sync" />
           </div>
           <div class="reveal-hidden visual-img img-2" style="transition-delay: 0.3s;">
-            <img src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779746698/branding-abstracto_nfn6ct.jpg?q=80&w=600&auto=format&fit=crop" alt="Branding abstracto" loading="lazy" />
+            <img src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779746698/branding-abstracto_nfn6ct.jpg?q=80&w=600&auto=format&fit=crop" alt="Branding abstracto" fetchpriority="high" decoding="sync" />
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@ const services = [
           {services.map((srv, i) => (
             <div class={`reveal-hidden bento-card bento-${i}`} style={`transition-delay: ${(i * 0.1) + 0.1}s;`}>
               <div class="bento-img-wrap">
-                <img src={srv.img} alt={srv.title} class="bento-img" loading="lazy" />
+                <img src={srv.img} alt={srv.title} class="bento-img" loading="lazy" decoding="async" />
                 <div class="bento-overlay"></div>
               </div>
               <div class="bento-content">
@@ -96,15 +96,15 @@ const services = [
     <section class="gallery-section">
       <div class="gallery-grid">
         <div class="reveal-hidden gal-item" style="transition-delay: 0.1s;">
-          <img src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779746152/Moodboards_wbcdfh.jpg?q=80&w=800&auto=format&fit=crop" alt="Moodboard" loading="lazy" />
+          <img src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779746152/Moodboards_wbcdfh.jpg?q=80&w=800&auto=format&fit=crop" alt="Moodboard" loading="lazy" decoding="async" />
           <p class="font-heading gal-caption">Moodboards & Conceptos</p>
         </div>
         <div class="reveal-hidden gal-item" style="transition-delay: 0.2s; margin-top: 10%;">
-          <img src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779746251/sistemas-de-color_dufyyw.jpg?q=80&w=800&auto=format&fit=crop" alt="Paletas de color" loading="lazy" />
+          <img src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779746251/sistemas-de-color_dufyyw.jpg?q=80&w=800&auto=format&fit=crop" alt="Paletas de color" loading="lazy" decoding="async" />
           <p class="font-heading gal-caption">Sistemas de Color</p>
         </div>
         <div class="reveal-hidden gal-item" style="transition-delay: 0.3s;">
-          <img src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779746313/tipografia_felx7h.jpg?q=80&w=800&auto=format&fit=crop" alt="Tipografía" loading="lazy" />
+          <img src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779746313/tipografia_felx7h.jpg?q=80&w=800&auto=format&fit=crop" alt="Tipografía" loading="lazy" decoding="async" />
           <p class="font-heading gal-caption">Curaduría Tipográfica</p>
         </div>
       </div>
@@ -197,6 +197,7 @@ const services = [
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease;
+    will-change: transform;
   }
   .visual-img:hover img {
     transform: scale(1.05);
@@ -279,6 +280,7 @@ const services = [
     height: 100%;
     object-fit: cover;
     transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
   }
   .bento-card:hover .bento-img {
     transform: scale(1.08); /* GSAP-like smooth scale */
@@ -372,11 +374,12 @@ const services = [
 
 <script>
   const observer = new IntersectionObserver(
-    (entries) => {
+    (entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('reveal-visible');
           entry.target.classList.remove('reveal-hidden');
+          obs.unobserve(entry.target);
         }
       });
     },
