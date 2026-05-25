@@ -76,7 +76,7 @@ const despues = [
               Combinamos estrategia, contenido y pauta pagada para llevar tu negocio donde están tus clientes, y convencerlos de que eres la mejor opción.
             </p>
           </div>
-          <div class="reveal-hidden" style="transition-delay: 0.34s; margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px;">
+          <div class="reveal-hidden hero-btns" style="transition-delay: 0.34s; margin-top: 36px;">
             <a href="https://wa.me/50689000108" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 0.9rem 1.9rem; font-size: 0.82rem;">
               Quiero más clientes
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -93,15 +93,6 @@ const despues = [
           <div class="hero-grid" aria-hidden="true"></div>
 
           <div class="reveal-hidden campaign-wrap" style="transition-delay: 0.2s;">
-
-            <!-- Floating badge: ROAS -->
-            <div class="float-badge float-roas">
-              <div class="badge-icon">📈</div>
-              <div>
-                <div class="badge-val font-heading">5.8x</div>
-                <div class="badge-label">ROAS promedio</div>
-              </div>
-            </div>
 
             <!-- Main campaign card -->
             <div class="campaign-card liquid-glass-strong">
@@ -151,14 +142,6 @@ const despues = [
               </div>
             </div>
 
-            <!-- Floating badge: leads -->
-            <div class="float-badge float-leads">
-              <div class="badge-icon">🎯</div>
-              <div>
-                <div class="badge-val font-heading">128</div>
-                <div class="badge-label">leads este mes</div>
-              </div>
-            </div>
 
           </div>
         </div>
@@ -402,7 +385,7 @@ const despues = [
     min-height: 100svh;
   }
   @media (min-width: 900px) {
-    .hero-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .hero-inner { grid-template-columns: 3fr 2fr; gap: 48px; }
   }
 
   .hero-text {
@@ -410,20 +393,25 @@ const despues = [
     flex-direction: column;
     justify-content: center;
     padding: clamp(100px, 12vh, 150px) 0 clamp(28px, 4vh, 48px);
+    align-items: center;
+    text-align: center;
   }
   @media (min-width: 900px) {
     .hero-text {
-      padding: clamp(120px, 14vh, 170px) 40px clamp(120px, 14vh, 170px) 0;
+      padding: clamp(120px, 14vh, 170px) 0 clamp(120px, 14vh, 170px) 0;
+      align-items: flex-start;
+      text-align: left;
     }
   }
 
   .hero-h1 {
-    font-size: clamp(2.8rem, 8vw, 6.4rem);
+    font-size: clamp(3rem, 14vw, 6.4rem);
     line-height: 0.9;
     letter-spacing: 0.01em;
     text-transform: uppercase;
     color: var(--fg);
     margin: 0;
+    width: 100%;
   }
 
   .accent-stroke {
@@ -440,23 +428,40 @@ const despues = [
     max-width: 460px;
   }
 
+  .hero-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  .hero-btns a {
+    justify-content: center;
+    text-align: center;
+  }
+  @media (min-width: 480px) {
+    .hero-btns {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: auto;
+    }
+    .hero-btns a {
+      justify-content: initial;
+      text-align: initial;
+    }
+  }
+
   /* Right column */
   .hero-right {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 0 48px;
-    min-height: 400px;
-  }
-  @media (min-width: 640px) {
-    .hero-right { min-height: 460px; padding: 24px 0 56px; }
+    display: none;
   }
   @media (min-width: 900px) {
     .hero-right {
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;
       min-height: auto;
       padding: 80px 0;
-      justify-content: flex-end;
     }
   }
 
@@ -481,16 +486,8 @@ const despues = [
   .campaign-wrap {
     position: relative;
     width: 100%;
-    max-width: 360px;
+    max-width: min(420px, 100%);
     z-index: 2;
-    padding-top: 44px;
-    padding-bottom: 44px;
-  }
-  @media (min-width: 640px) {
-    .campaign-wrap { max-width: 380px; padding-top: 56px; padding-bottom: 56px; }
-  }
-  @media (min-width: 900px) {
-    .campaign-wrap { padding-top: 60px; padding-bottom: 60px; }
   }
 
   /* Campaign card */
@@ -651,12 +648,6 @@ const despues = [
     text-transform: uppercase;
   }
 
-  .float-roas { top: 0; right: 0; }
-  .float-leads { bottom: 0; left: 0; }
-  @media (min-width: 640px) {
-    .float-roas { right: -10px; }
-    .float-leads { left: -15px; }
-  }
 
   /* ── TICKER ───────────────────────────────────────────────────── */
   .ticker-wrap {
