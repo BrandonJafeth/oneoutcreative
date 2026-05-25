@@ -396,11 +396,13 @@ body {
   to   { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
+.reveal-hidden, .reveal-visible {
+  transition: all 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
 .reveal-hidden {
   opacity: 0;
-  transform: translateY(24px);
-  filter: blur(4px);
-  transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform: translateY(32px);
+  filter: blur(8px);
 }
 .reveal-visible {
   opacity: 1;
