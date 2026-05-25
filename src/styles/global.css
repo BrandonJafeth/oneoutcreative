@@ -398,6 +398,7 @@ body {
 
 .reveal-hidden, .reveal-visible {
   transition: all 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform, filter; /* Optimización GPU Desktop */
 }
 .reveal-hidden {
   opacity: 0;
