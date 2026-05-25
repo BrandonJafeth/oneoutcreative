@@ -1,0 +1,22 @@
+[
+  {
+    "n": "01",
+    "titulo": "Landing Pages",
+    "texto": "Diseñadas para cargar rápido y captar la atención. Usamos buenas prácticas para ayudar a convertir visitas en contactos."
+  },
+  {
+    "n": "02",
+    "titulo": "E-commerce",
+    "texto": "Catálogo, sistema de pagos y gestión integrados. Desarrollamos tiendas que facilitan la compra a tus clientes."
+  },
+  {
+    "n": "03",
+    "titulo": "Plataformas Web",
+    "texto": "Adaptadas a tus procesos, conectando herramientas útiles con un código limpio y pensado para crecer."
+  },
+  {
+    "n": "04",
+    "titulo": "Integraciones",
+    "texto": "Conectamos WhatsApp, email o sistemas extras para simplificar algunas partes de tu operación digital."
+  }
+]

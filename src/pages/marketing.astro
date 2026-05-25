@@ -1,0 +1,1032 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import CtaFooter from '../components/CtaFooter.astro';
+
+const servicios = [
+  {
+    n: '01',
+    titulo: 'Estrategia Digital',
+    desc: 'Antes de publicar un solo post, analizamos mercado, competencia y audiencia. Cada acción tiene un propósito real detrás.',
+    tags: ['Auditoría', 'Buyer Persona', 'Roadmap 90 días'],
+  },
+  {
+    n: '02',
+    titulo: 'Contenido & Copywriting',
+    desc: 'Palabras que convierten. Diseño que detiene el scroll. Piezas visuales y textos que hablan directo al cliente ideal.',
+    tags: ['Redes Sociales', 'Blogs', 'Email Sequences'],
+  },
+  {
+    n: '03',
+    titulo: 'Paid Media',
+    desc: 'Inversión optimizada donde importa. Meta Ads y Google Ads medidos por costo por resultado, no por clics vacíos.',
+    tags: ['Meta Ads', 'Google Ads', 'Retargeting'],
+  },
+  {
+    n: '04',
+    titulo: 'Analítica & Reportes',
+    desc: 'Sin métricas de vanidad. Reportes claros con lo que importa: leads, conversiones y retorno real sobre inversión.',
+    tags: ['GA4', 'Dashboards', 'ROI Tracking'],
+  },
+];
+
+const antes = [
+  { label: 'Alcance mensual',   val: '320 personas' },
+  { label: 'Costo por lead',    val: '$48 USD' },
+  { label: 'Tasa de conversión', val: '0.8%' },
+  { label: 'ROAS promedio',     val: '1.2x' },
+];
+
+const despues = [
+  { label: 'Alcance mensual',   val: '+18,400' },
+  { label: 'Costo por lead',    val: '$6.20 USD' },
+  { label: 'Tasa de conversión', val: '4.7%' },
+  { label: 'ROAS promedio',     val: '5.8x' },
+];
+---
+<Layout
+  title="Marketing Digital — One Out Creative"
+  description="Estrategia, contenido y paid media que convierte visitas en clientes reales. Medimos resultados, no promesas."
+>
+  <Navbar />
+  <main id="top">
+
+    <!-- ── HERO ──────────────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-bg-num" aria-hidden="true">ROI</div>
+
+      <div class="hero-inner">
+
+        <!-- LEFT: texto -->
+        <div class="hero-text">
+          <div class="reveal-hidden">
+            <div class="eyebrow accent" style="margin-bottom: 28px;">
+              <span class="dot"></span>Marketing Digital
+            </div>
+          </div>
+          <div class="reveal-hidden" style="transition-delay: 0.1s;">
+            <h1 class="font-heading hero-h1">
+              Marketing<br />
+              que vende.<br />
+              <span class="accent-stroke">No que se<br />ve bonito.</span>
+            </h1>
+          </div>
+          <div class="reveal-hidden" style="transition-delay: 0.22s; margin-top: 28px;">
+            <p class="hero-sub">
+              Combinamos estrategia, contenido y pauta pagada para llevar tu negocio donde están tus clientes, y convencerlos de que eres la mejor opción.
+            </p>
+          </div>
+          <div class="reveal-hidden" style="transition-delay: 0.34s; margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px;">
+            <a href="https://wa.me/50689000108" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 0.9rem 1.9rem; font-size: 0.82rem;">
+              Quiero más clientes
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+            <a href="#servicios" class="btn-ghost liquid-glass-strong" style="padding: 0.9rem 1.9rem; font-size: 0.82rem;">
+              Ver servicios
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT: campaign mockup -->
+        <div class="hero-right">
+          <div class="hero-glow" aria-hidden="true"></div>
+          <div class="hero-grid" aria-hidden="true"></div>
+
+          <div class="reveal-hidden campaign-wrap" style="transition-delay: 0.2s;">
+
+            <!-- Floating badge: ROAS -->
+            <div class="float-badge float-roas">
+              <div class="badge-icon">📈</div>
+              <div>
+                <div class="badge-val font-heading">5.8x</div>
+                <div class="badge-label">ROAS promedio</div>
+              </div>
+            </div>
+
+            <!-- Main campaign card -->
+            <div class="campaign-card liquid-glass-strong">
+              <div class="cc-header">
+                <div class="cc-platform">
+                  <div class="cc-dot" style="background: #1877f2;"></div>
+                  <span>Meta Ads Manager</span>
+                </div>
+                <div class="cc-live">
+                  <div class="cc-live-dot"></div>
+                  <span>En vivo</span>
+                </div>
+              </div>
+
+              <div class="cc-kpi-row">
+                <div class="cc-kpi">
+                  <div class="cc-kpi-label">Inversión</div>
+                  <div class="cc-kpi-val font-heading">$840</div>
+                </div>
+                <div class="cc-kpi">
+                  <div class="cc-kpi-label">Resultados</div>
+                  <div class="cc-kpi-val font-heading cc-green">128</div>
+                </div>
+                <div class="cc-kpi">
+                  <div class="cc-kpi-label">Costo / resultado</div>
+                  <div class="cc-kpi-val font-heading">$6.56</div>
+                </div>
+              </div>
+
+              <!-- Mini chart -->
+              <div class="cc-chart" aria-hidden="true">
+                <div class="cc-chart-bars">
+                  {[30, 45, 38, 62, 55, 70, 58, 80, 75, 88, 72, 95, 85, 100].map((h) => (
+                    <div class="cc-bar" style={`height: ${h}%`}></div>
+                  ))}
+                </div>
+                <div class="cc-chart-label">Últimas 2 semanas</div>
+              </div>
+
+              <div class="cc-footer">
+                <div class="cc-trend">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                  <span style="color: #22c55e;">+62%</span>
+                  <span style="color: var(--soft-text);">vs mes anterior</span>
+                </div>
+                <div class="cc-ctr">CTR <strong>4.7%</strong></div>
+              </div>
+            </div>
+
+            <!-- Floating badge: leads -->
+            <div class="float-badge float-leads">
+              <div class="badge-icon">🎯</div>
+              <div>
+                <div class="badge-val font-heading">128</div>
+                <div class="badge-label">leads este mes</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TICKER ─────────────────────────────────────────────────── -->
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker-track">
+        {Array(3).fill(['ESTRATEGIA', 'CONTENIDO', 'META ADS', 'GOOGLE ADS', 'EMAIL MARKETING', 'SEO', 'CONVERSIÓN', 'ANALÍTICA', 'ROI', 'RETARGETING']).flat().map((t) => (
+          <span class="ticker-item font-heading">{t}<span class="ticker-dot">·</span></span>
+        ))}
+      </div>
+    </div>
+
+    <!-- ── SERVICIOS ──────────────────────────────────────────────── -->
+    <section id="servicios" style="background: var(--card); padding: clamp(80px, 12vw, 130px) 24px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="reveal-hidden" style="margin-bottom: 8px;">
+          <div class="eyebrow"><span class="dot"></span>Lo que hacemos</div>
+        </div>
+        <div class="reveal-hidden" style="margin-bottom: 56px; transition-delay: 0.05s;">
+          <h2 class="font-heading" style="font-size: clamp(2.2rem, 5vw, 4rem); line-height: 0.95; text-transform: uppercase; margin: 0; text-wrap: balance;">
+            Todo bajo un mismo<br /><span style="color: var(--accent);">techo estratégico.</span>
+          </h2>
+        </div>
+
+        {servicios.map((s, i) => (
+          <div class="reveal-hidden srv-row" style={`transition-delay: ${i * 0.08}s;`}>
+            <div class="srv-num font-heading">{s.n}</div>
+            <div class="srv-body">
+              <h3 class="font-heading srv-titulo">{s.titulo}</h3>
+              <p class="srv-desc">{s.desc}</p>
+              <div class="srv-tags">
+                {s.tags.map((t) => <span class="srv-tag">{t}</span>)}
+              </div>
+            </div>
+            <div class="srv-arrow" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+        ))}
+        <div style="border-top: 1px solid var(--hairline);"></div>
+      </div>
+    </section>
+
+    <!-- ── ANTES vs DESPUÉS ───────────────────────────────────────── -->
+    <section style="background: var(--bg); padding: clamp(80px, 12vw, 130px) 24px; overflow: hidden;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="reveal-hidden" style="text-align: center; margin-bottom: 16px;">
+          <div class="eyebrow" style="justify-content: center;"><span class="dot"></span>Resultados reales</div>
+        </div>
+        <div class="reveal-hidden" style="text-align: center; margin-bottom: 60px; transition-delay: 0.06s;">
+          <h2 class="font-heading" style="font-size: clamp(2.2rem, 5vw, 4rem); line-height: 0.95; text-transform: uppercase; margin: 0;">
+            Números que no<br /><span style="color: var(--accent);">mienten.</span>
+          </h2>
+        </div>
+
+        <div class="comparison-grid">
+          <!-- Antes -->
+          <div class="reveal-hidden comparison-col before-col" style="transition-delay: 0.1s;">
+            <div class="col-header">
+              <span class="col-badge before-badge">Sin marketing estratégico</span>
+            </div>
+            {antes.map((row) => (
+              <div class="comp-row before-row">
+                <span class="comp-label">{row.label}</span>
+                <span class="comp-val before-val">{row.val}</span>
+              </div>
+            ))}
+          </div>
+
+          <!-- Divisor -->
+          <div class="reveal-hidden comparison-divider" style="transition-delay: 0.15s;" aria-hidden="true">
+            <div class="div-line"></div>
+            <div class="div-pill font-heading">VS</div>
+            <div class="div-line"></div>
+          </div>
+
+          <!-- Después -->
+          <div class="reveal-hidden comparison-col after-col" style="transition-delay: 0.2s;">
+            <div class="col-header">
+              <span class="col-badge after-badge">Con One Out Creative</span>
+            </div>
+            {despues.map((row) => (
+              <div class="comp-row after-row">
+                <span class="comp-label">{row.label}</span>
+                <span class="comp-val after-val">{row.val}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="reveal-hidden" style="text-align: center; margin-top: 48px;">
+          <p style="font-size: 0.75rem; color: var(--soft-text); letter-spacing: 0.1em; text-transform: uppercase;">
+            Ejemplo basado en cliente real del sector servicios · Resultados individuales varían
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GALERÍA PLACEHOLDER ───────────────────────────────────── -->
+    <section style="background: var(--card); padding: clamp(80px, 12vw, 130px) 24px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="reveal-hidden" style="margin-bottom: 8px;">
+          <div class="eyebrow"><span class="dot"></span>Campañas recientes</div>
+        </div>
+        <div class="reveal-hidden" style="margin-bottom: 48px; transition-delay: 0.05s;">
+          <h2 class="font-heading" style="font-size: clamp(2rem, 4vw, 3.2rem); line-height: 0.95; text-transform: uppercase; margin: 0;">
+            El trabajo habla<br /><span style="color: var(--accent);">por sí solo.</span>
+          </h2>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="reveal-hidden gal-card gal-wide" style="transition-delay: 0.05s;">
+            <div class="gal-placeholder">
+              <span class="gal-ph-label font-heading">Campaña · Sector Salud</span>
+              <span class="gal-ph-meta">+340% leads · 3 meses</span>
+            </div>
+            <div class="gal-overlay">
+              <div class="gal-tag">Meta Ads + Contenido</div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden gal-card" style="transition-delay: 0.1s;">
+            <div class="gal-placeholder">
+              <span class="gal-ph-label font-heading">Campaña · E-commerce</span>
+              <span class="gal-ph-meta">ROAS 6.2x</span>
+            </div>
+            <div class="gal-overlay">
+              <div class="gal-tag">Google Shopping</div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden gal-card" style="transition-delay: 0.15s;">
+            <div class="gal-placeholder">
+              <span class="gal-ph-label font-heading">Campaña · Restaurante</span>
+              <span class="gal-ph-meta">+180% reservas</span>
+            </div>
+            <div class="gal-overlay">
+              <div class="gal-tag">Instagram Ads</div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden gal-card" style="transition-delay: 0.2s;">
+            <div class="gal-placeholder">
+              <span class="gal-ph-label font-heading">Campaña · Inmobiliaria</span>
+              <span class="gal-ph-meta">Costo/lead -74%</span>
+            </div>
+            <div class="gal-overlay">
+              <div class="gal-tag">Meta Leads</div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden gal-card" style="transition-delay: 0.25s;">
+            <div class="gal-placeholder">
+              <span class="gal-ph-label font-heading">Campaña · Educación</span>
+              <span class="gal-ph-meta">4,200 inscripciones</span>
+            </div>
+            <div class="gal-overlay">
+              <div class="gal-tag">Funnel Completo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA FINAL ─────────────────────────────────────────────── -->
+    <section class="cta-section">
+      <div class="cta-glow-left" aria-hidden="true"></div>
+      <div class="cta-glow-right" aria-hidden="true"></div>
+      <div class="cta-inner">
+        <div class="reveal-hidden">
+          <div class="eyebrow accent" style="justify-content: center; margin-bottom: 24px;">
+            <span class="dot"></span>¿Listo para crecer?
+          </div>
+        </div>
+        <div class="reveal-hidden" style="transition-delay: 0.1s;">
+          <h2 class="font-heading cta-h2">
+            Tu competencia<br />ya está invirtiendo<br />
+            <span style="color: var(--accent);">en marketing.</span>
+          </h2>
+        </div>
+        <div class="reveal-hidden" style="transition-delay: 0.2s;">
+          <p class="cta-sub">
+            Cada día sin estrategia digital es una oportunidad que se lleva alguien más. Hablemos hoy — la primera sesión es sin costo.
+          </p>
+        </div>
+        <div class="reveal-hidden cta-btns" style="transition-delay: 0.3s;">
+          <a href="https://wa.me/50689000108" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 1.1rem 2.4rem; font-size: 0.85rem;">
+            Agendar consulta gratis
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <CtaFooter />
+  </main>
+</Layout>
+
+
+<style>
+  /* ── HERO ─────────────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    background: var(--bg);
+    overflow: hidden;
+    min-height: 100svh;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .hero-bg-num {
+    position: absolute;
+    top: 50%;
+    left: -2%;
+    transform: translateY(-50%);
+    font-family: var(--font-heading);
+    font-size: clamp(18vw, 28vw, 380px);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.03);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    gap: 0;
+    align-items: center;
+    min-height: 100svh;
+  }
+  @media (min-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(100px, 12vh, 150px) 0 clamp(28px, 4vh, 48px);
+  }
+  @media (min-width: 900px) {
+    .hero-text {
+      padding: clamp(120px, 14vh, 170px) 40px clamp(120px, 14vh, 170px) 0;
+    }
+  }
+
+  .hero-h1 {
+    font-size: clamp(2.8rem, 8vw, 6.4rem);
+    line-height: 0.9;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--fg);
+    margin: 0;
+  }
+
+  .accent-stroke {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--accent);
+  }
+
+  .hero-sub {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 460px;
+  }
+
+  /* Right column */
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 0 48px;
+    min-height: 400px;
+  }
+  @media (min-width: 640px) {
+    .hero-right { min-height: 460px; padding: 24px 0 56px; }
+  }
+  @media (min-width: 900px) {
+    .hero-right {
+      min-height: auto;
+      padding: 80px 0;
+      justify-content: flex-end;
+    }
+  }
+
+  .hero-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 420px; height: 420px; border-radius: 9999px;
+    background: radial-gradient(ellipse, rgba(232,119,34,0.12), transparent 65%);
+    filter: blur(60px); pointer-events: none;
+  }
+  .hero-grid {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+  }
+
+  /* Campaign card wrapper */
+  .campaign-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    z-index: 2;
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+  @media (min-width: 640px) {
+    .campaign-wrap { max-width: 380px; padding-top: 56px; padding-bottom: 56px; }
+  }
+  @media (min-width: 900px) {
+    .campaign-wrap { padding-top: 60px; padding-bottom: 60px; }
+  }
+
+  /* Campaign card */
+  .campaign-card {
+    border-radius: 16px;
+    border: 1px solid var(--hairline);
+    background: rgba(22, 22, 22, 0.9);
+    padding: clamp(14px, 3vw, 20px);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.04) inset,
+      0 40px 100px rgba(0,0,0,0.55),
+      0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  .cc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .cc-platform {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .cc-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+  .cc-live {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: #22c55e;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .cc-live-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .cc-kpi-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .cc-kpi-label {
+    font-family: var(--font-body);
+    font-size: 0.58rem;
+    color: var(--soft-text);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .cc-kpi-val {
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+    color: var(--fg);
+    line-height: 1;
+  }
+  .cc-green { color: #22c55e; }
+
+  /* Mini bar chart */
+  .cc-chart {
+    margin-bottom: 16px;
+  }
+  .cc-chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 56px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .cc-bar {
+    flex: 1;
+    background: linear-gradient(to top, var(--accent), rgba(232,119,34,0.3));
+    border-radius: 2px 2px 0 0;
+    min-height: 4px;
+    transition: height 0.3s ease;
+  }
+  .cc-chart-label {
+    font-family: var(--font-body);
+    font-size: 0.58rem;
+    color: var(--soft-text);
+    letter-spacing: 0.06em;
+    margin-top: 6px;
+  }
+
+  .cc-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cc-trend {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 600;
+  }
+  .cc-ctr {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    color: var(--soft-text);
+    letter-spacing: 0.06em;
+  }
+  .cc-ctr strong {
+    color: var(--fg);
+    font-weight: 600;
+  }
+
+  /* Floating badges */
+  .float-badge {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(12,13,18,0.92);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    padding: 12px 14px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+    white-space: nowrap;
+  }
+  .badge-icon { font-size: 1.4rem; line-height: 1; }
+  .badge-val {
+    font-size: 1.3rem;
+    line-height: 1;
+    color: var(--accent);
+  }
+  .badge-label {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    color: var(--soft-text);
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+    text-transform: uppercase;
+  }
+
+  .float-roas { top: 0; right: 0; }
+  .float-leads { bottom: 0; left: 0; }
+  @media (min-width: 640px) {
+    .float-roas { right: -10px; }
+    .float-leads { left: -15px; }
+  }
+
+  /* ── TICKER ───────────────────────────────────────────────────── */
+  .ticker-wrap {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 18px 0;
+    background: var(--accent);
+    position: relative;
+  }
+  .ticker-track {
+    display: inline-block;
+    animation: ticker 35s linear infinite;
+  }
+  .ticker-item {
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+    letter-spacing: 0.18em;
+    color: #fff;
+  }
+  .ticker-dot {
+    margin: 0 20px;
+    opacity: 0.5;
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-33.333%); }
+  }
+
+  /* ── SERVICIOS ────────────────────────────────────────────────── */
+  .srv-row {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    gap: 0 20px;
+    align-items: start;
+    border-top: 1px solid var(--hairline);
+    padding: clamp(24px, 4vw, 42px) 0;
+    cursor: default;
+    transition: background 0.25s;
+    border-radius: 4px;
+  }
+  @media (min-width: 768px) {
+    .srv-row { grid-template-columns: 54px 1fr auto; gap: 0 32px; }
+  }
+  @media (min-width: 1024px) {
+    .srv-row { gap: 0 48px; }
+  }
+  .srv-row:hover {
+    background: rgba(255,255,255,0.02);
+  }
+  .srv-row:hover .srv-arrow {
+    color: var(--accent);
+    transform: translate(3px, -3px);
+  }
+
+  .srv-num {
+    font-size: 1rem;
+    color: var(--accent);
+    opacity: 0.6;
+    padding-top: 4px;
+    line-height: 1;
+  }
+
+  .srv-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .srv-titulo {
+    font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--fg);
+    margin: 0;
+    line-height: 1.05;
+  }
+
+  .srv-desc {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--muted);
+    margin: 0;
+    max-width: 520px;
+  }
+
+  .srv-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .srv-tag {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--soft-text);
+    border: 1px solid var(--hairline);
+    border-radius: 9999px;
+    padding: 3px 10px;
+  }
+
+  .srv-arrow {
+    color: var(--hairline-strong);
+    transition: color 0.25s, transform 0.25s;
+    flex-shrink: 0;
+    align-self: center;
+    margin-top: 2px;
+  }
+
+  @media (max-width: 640px) {
+    .srv-row {
+      grid-template-columns: 40px 1fr;
+      gap: 0 12px;
+    }
+    .srv-arrow { display: none; }
+  }
+
+  /* ── COMPARACIÓN ANTES / DESPUÉS ─────────────────────────────── */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0 24px;
+    align-items: start;
+  }
+  @media (max-width: 680px) {
+    .comparison-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .comparison-divider { display: none; }
+  }
+
+  .comparison-col {
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .col-header {
+    padding: clamp(12px, 2vw, 16px) clamp(14px, 3vw, 24px);
+    margin-bottom: 0;
+  }
+  .col-badge {
+    font-family: var(--font-body);
+    font-size: clamp(0.55rem, 1.2vw, 0.65rem);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 9999px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  .before-badge {
+    background: rgba(255,255,255,0.06);
+    color: var(--muted);
+    border: 1px solid var(--hairline);
+  }
+  .after-badge {
+    background: rgba(232,119,34,0.15);
+    color: var(--accent);
+    border: 1px solid rgba(232,119,34,0.3);
+  }
+
+  .comp-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(12px, 2.5vw, 18px) clamp(14px, 3vw, 24px);
+    border-top: 1px solid var(--hairline);
+    gap: 10px;
+  }
+  .comp-label {
+    font-family: var(--font-body);
+    font-size: clamp(0.72rem, 1.5vw, 0.82rem);
+    color: var(--soft-text);
+    font-weight: 400;
+    flex: 1;
+    min-width: 0;
+  }
+  .comp-val {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .before-val {
+    color: var(--soft-text);
+    text-decoration: line-through;
+    text-decoration-color: rgba(255,255,255,0.2);
+  }
+  .after-val { color: var(--accent); }
+
+  .before-col {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--hairline);
+  }
+  .after-col {
+    background: rgba(232,119,34,0.04);
+    border: 1px solid rgba(232,119,34,0.2);
+  }
+
+  /* VS divider */
+  .comparison-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    align-self: stretch;
+  }
+  .div-line {
+    flex: 1;
+    width: 1px;
+    background: var(--hairline);
+  }
+  .div-pill {
+    font-size: 0.8rem;
+    color: var(--soft-text);
+    letter-spacing: 0.15em;
+    padding: 6px 10px;
+    border: 1px solid var(--hairline);
+    border-radius: 9999px;
+  }
+
+  /* ── GALERÍA PLACEHOLDERS ─────────────────────────────────────── */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 12px;
+  }
+  @media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gal-wide { grid-column: span 2; }
+  }
+  @media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gal-wide { grid-column: span 1; }
+  }
+
+  .gal-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    background: var(--bg);
+    border: 1px solid var(--hairline);
+    cursor: default;
+  }
+  .gal-wide {
+    grid-column: span 2;
+    aspect-ratio: 16/9;
+  }
+
+  .gal-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 50%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        rgba(255,255,255,0.015) 20px,
+        rgba(255,255,255,0.015) 21px
+      );
+  }
+  .gal-ph-label {
+    font-size: clamp(0.7rem, 1.5vw, 1rem);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted-stronger);
+    text-align: center;
+    padding: 0 16px;
+  }
+  .gal-ph-meta {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .gal-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 50%);
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .gal-card:hover .gal-overlay { opacity: 1; }
+
+  .gal-tag {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(232,119,34,0.4);
+    border-radius: 9999px;
+    padding: 4px 12px;
+  }
+
+  /* ── CTA ──────────────────────────────────────────────────────── */
+  .cta-section {
+    position: relative;
+    background: var(--bg);
+    padding: clamp(100px, 16vw, 160px) 24px;
+    overflow: hidden;
+    text-align: center;
+    border-top: 1px solid var(--hairline);
+  }
+  .cta-glow-left {
+    position: absolute;
+    top: 0; left: -10%;
+    width: 50%; height: 100%;
+    background: radial-gradient(ellipse at left center, rgba(232,119,34,0.07), transparent 60%);
+    pointer-events: none;
+  }
+  .cta-glow-right {
+    position: absolute;
+    top: 0; right: -10%;
+    width: 50%; height: 100%;
+    background: radial-gradient(ellipse at right center, rgba(232,119,34,0.07), transparent 60%);
+    pointer-events: none;
+  }
+  .cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cta-h2 {
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin: 0 0 28px;
+    text-wrap: balance;
+  }
+  .cta-sub {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto 40px;
+  }
+  .cta-btns {
+    display: flex;
+    justify-content: center;
+  }
+</style>

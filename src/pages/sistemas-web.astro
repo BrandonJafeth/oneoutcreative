@@ -2,15 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import CtaFooter from '../components/CtaFooter.astro';
+import tipos from '../data/web-tipos.json';
+import stats from '../data/web-stats.json';
 
 const SOLUTIONS_URL = 'https://one-out-solutions.vercel.app/';
-
-const tipos = [
-  { n: '01', titulo: 'Landing Pages',    texto: 'Diseñadas para cargar rápido y captar la atención. Usamos buenas prácticas para ayudar a convertir visitas en contactos.' },
-  { n: '02', titulo: 'E-commerce',       texto: 'Catálogo, sistema de pagos y gestión integrados. Desarrollamos tiendas que facilitan la compra a tus clientes.' },
-  { n: '03', titulo: 'Plataformas Web',  texto: 'Adaptadas a tus procesos, conectando herramientas útiles con un código limpio y pensado para crecer.' },
-  { n: '04', titulo: 'Integraciones',    texto: 'Conectamos WhatsApp, email o sistemas extras para simplificar algunas partes de tu operación digital.' },
-];
 ---
 <Layout
   title="Sistemas Web — One Out Creative"
@@ -142,11 +137,7 @@ const tipos = [
     <section style="background: var(--bg); padding: clamp(60px, 10vw, 100px) 24px;">
       <div style="max-width: 1200px; margin: 0 auto;">
         <div class="nums-grid">
-          {[
-            { v: '<2s',   l: 'Tiempo de carga',  s: 'Tiempos de carga rápidos' },
-            { v: '+60%', l: 'Más conversiones',  s: 'Resultados reales de un cliente' },
-            { v: '+100%', l: 'Leads por mes',     s: 'Crecimiento de leads' },
-          ].map((s, i) => (
+          {stats.map((s, i) => (
             <div class="reveal-hidden num-cell" style={`transition-delay: ${i * 0.1}s;`}>
               <div class="font-heading num-val">{s.v}</div>
               <div class="num-label">{s.l}</div>
@@ -188,20 +179,6 @@ const tipos = [
   </main>
 </Layout>
 
-<script>
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-visible');
-          entry.target.classList.remove('reveal-hidden');
-        }
-      });
-    },
-    { threshold: 0.05, rootMargin: '0px 0px 40px 0px' }
-  );
-  document.querySelectorAll('.reveal-hidden').forEach(el => observer.observe(el));
-</script>
 
 <style>
   /* ── HERO ─────────────────────────────────────────────────────── */

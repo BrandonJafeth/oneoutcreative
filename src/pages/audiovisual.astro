@@ -1,0 +1,866 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import CtaFooter from '../components/CtaFooter.astro';
+
+const servicios = [
+  {
+    n: '01',
+    titulo: 'Video Corporativo',
+    desc: 'Tu historia, narrada con propósito. Producción completa desde guión hasta entrega final.',
+  },
+  {
+    n: '02',
+    titulo: 'Fotografía Comercial',
+    desc: 'Producto, equipo, espacios. Imágenes con dirección de arte que venden antes de que alguien lea.',
+  },
+  {
+    n: '03',
+    titulo: 'Contenido para Redes',
+    desc: 'Reels, stories y piezas nativas. Capturamos atención en los primeros 3 segundos.',
+  },
+  {
+    n: '04',
+    titulo: 'Dirección de Arte',
+    desc: 'Concepto visual, moodboards, styling y producción en set. Cada detalle controlado.',
+  },
+  {
+    n: '05',
+    titulo: 'Post-producción',
+    desc: 'Edición, color grading, motion graphics y audio. Del material en bruto al resultado final.',
+  },
+  {
+    n: '06',
+    titulo: 'Cobertura de Eventos',
+    desc: 'Lanzamientos, conferencias y activaciones. Documentamos los momentos que tu marca no puede perder.',
+  },
+];
+
+const stats = [
+  { val: '+200', label: 'Proyectos producidos' },
+  { val: '4K',   label: 'Resolución máxima' },
+  { val: '48h',  label: 'Entrega de contenido express' },
+];
+---
+<Layout
+  title="Producción Audiovisual — One Out Creative"
+  description="Video, fotografía y dirección de arte para marcas que quieren ser recordadas. Producción profesional en Costa Rica."
+>
+  <Navbar />
+  <main id="top">
+
+    <!-- ── HERO: FILM FRAME ───────────────────────────────────────── -->
+    <section class="hero">
+
+      <!-- Grain overlay -->
+      <div class="grain" aria-hidden="true"></div>
+
+      <div class="hero-content">
+
+        <!-- Top text -->
+        <div class="hero-top">
+          <div class="reveal-hidden">
+            <div class="eyebrow accent" style="justify-content: center; margin-bottom: 20px;">
+              <span class="dot"></span>Producción Audiovisual
+            </div>
+          </div>
+          <div class="reveal-hidden" style="transition-delay: 0.08s;">
+            <h1 class="font-heading hero-h1">
+              Hacemos que tu<br />
+              <span class="h1-outline">historia sea</span><br />
+              inolvidable.
+            </h1>
+          </div>
+        </div>
+
+        <!-- Film Frame -->
+        <div class="reveal-hidden film-frame-wrap" style="transition-delay: 0.18s;">
+          <div class="film-strip film-left" aria-hidden="true">
+            <div class="sprocket-holes"></div>
+          </div>
+
+          <div class="film-viewport">
+            <!-- PLACEHOLDER: reemplazar con <video> o <img> -->
+            <div class="main-ph">
+              <div class="ph-play" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+              <span class="ph-label font-heading">SHOWREEL 2025</span>
+              <span class="ph-meta">Video principal · 16:9</span>
+            </div>
+          </div>
+
+          <div class="film-strip film-right" aria-hidden="true">
+            <div class="sprocket-holes"></div>
+          </div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="reveal-hidden hero-ctas" style="transition-delay: 0.28s;">
+          <a href="https://wa.me/50689000108" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 0.95rem 2rem; font-size: 0.82rem;">
+            Quiero mi video
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <a href="#portfolio" class="btn-ghost liquid-glass-strong" style="padding: 0.95rem 2rem; font-size: 0.82rem;">
+            Ver portfolio
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CAPABILITY STRIP ───────────────────────────────────────── -->
+    <div class="cap-strip" aria-hidden="true">
+      <div class="cap-track">
+        {Array(4).fill(['VIDEO CORPORATIVO', 'FOTOGRAFÍA', 'REELS & STORIES', 'COLOR GRADING', 'DIRECCIÓN DE ARTE', 'MOTION GRAPHICS', 'COBERTURA EN VIVO', 'POST-PRODUCCIÓN']).flat().map((c) => (
+          <span class="cap-item font-heading">{c}<span class="cap-sep">—</span></span>
+        ))}
+      </div>
+    </div>
+
+    <!-- ── PORTFOLIO MASONRY ───────────────────────────────────────── -->
+    <section id="portfolio" style="background: var(--bg); padding: clamp(80px, 10vw, 120px) 24px;">
+      <div style="max-width: 1280px; margin: 0 auto;">
+
+        <div class="reveal-hidden port-header">
+          <div class="eyebrow" style="margin-bottom: 12px;"><span class="dot"></span>Portfolio</div>
+          <h2 class="font-heading port-h2">
+            El trabajo<br /><span style="color: var(--accent);">habla solo.</span>
+          </h2>
+        </div>
+
+        <!-- Masonry grid: mezcla de 16:9, portrait y cuadrado -->
+        <div class="masonry">
+
+          <!-- Fila 1 -->
+          <div class="reveal-hidden m-item m-wide" style="transition-delay: 0.05s;">
+            <div class="m-ph">
+              <div class="m-ph-inner">
+                <div class="m-type-tag">▶ VIDEO</div>
+                <span class="m-ph-label font-heading">Campaña Corporativa</span>
+                <span class="m-ph-meta">Video · 16:9 · 2:30 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden m-item m-tall" style="transition-delay: 0.1s;">
+            <div class="m-ph">
+              <div class="m-ph-inner">
+                <div class="m-type-tag">◉ FOTO</div>
+                <span class="m-ph-label font-heading">Retrato Ejecutivo</span>
+                <span class="m-ph-meta">Fotografía · Portrait</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden m-item m-sq" style="transition-delay: 0.12s;">
+            <div class="m-ph">
+              <div class="m-ph-inner">
+                <div class="m-type-tag">◉ FOTO</div>
+                <span class="m-ph-label font-heading">Producto</span>
+                <span class="m-ph-meta">Fotografía · Cuadrado</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden m-item m-sq" style="transition-delay: 0.15s;">
+            <div class="m-ph">
+              <div class="m-ph-inner">
+                <div class="m-type-tag">▶ REEL</div>
+                <span class="m-ph-label font-heading">Instagram Reel</span>
+                <span class="m-ph-meta">Video · 9:16 · 30s</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fila 2 -->
+          <div class="reveal-hidden m-item m-sq" style="transition-delay: 0.18s;">
+            <div class="m-ph">
+              <div class="m-ph-inner">
+                <div class="m-type-tag">◉ FOTO</div>
+                <span class="m-ph-label font-heading">Evento</span>
+                <span class="m-ph-meta">Fotografía · Cuadrado</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden m-item m-wide2" style="transition-delay: 0.2s;">
+            <div class="m-ph">
+              <div class="m-ph-inner">
+                <div class="m-type-tag">▶ VIDEO</div>
+                <span class="m-ph-label font-heading">Lanzamiento de Marca</span>
+                <span class="m-ph-meta">Video · 16:9 · 1:45 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden m-item m-sq" style="transition-delay: 0.22s;">
+            <div class="m-ph">
+              <div class="m-ph-inner">
+                <div class="m-type-tag">◉ FOTO</div>
+                <span class="m-ph-label font-heading">Behind the Scenes</span>
+                <span class="m-ph-meta">Fotografía · Cuadrado</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SERVICIOS ──────────────────────────────────────────────── -->
+    <section style="background: var(--card); padding: clamp(80px, 10vw, 120px) 24px;">
+      <div style="max-width: 1280px; margin: 0 auto;">
+
+        <div class="reveal-hidden" style="margin-bottom: 8px;">
+          <div class="eyebrow"><span class="dot"></span>Lo que producimos</div>
+        </div>
+        <div class="reveal-hidden" style="margin-bottom: 56px; transition-delay: 0.05s;">
+          <h2 class="font-heading" style="font-size: clamp(2.2rem, 5vw, 4rem); line-height: 0.92; text-transform: uppercase; margin: 0;">
+            Producción de<br /><span style="color: var(--accent);">principio a fin.</span>
+          </h2>
+        </div>
+
+        <div class="srv-grid">
+          {servicios.map((s, i) => (
+            <div class="reveal-hidden srv-card" style={`transition-delay: ${(i % 3) * 0.08}s;`}>
+              <!-- Placeholder imagen por servicio -->
+              <div class="srv-img-ph">
+                <div class="srv-img-inner">
+                  <span class="srv-img-n font-heading">{s.n}</span>
+                </div>
+                <div class="srv-img-overlay">
+                  <span class="srv-img-tag">{i % 2 === 0 ? '▶ VIDEO' : '◉ FOTO'}</span>
+                </div>
+              </div>
+              <div class="srv-info">
+                <h3 class="font-heading srv-titulo">{s.titulo}</h3>
+                <p class="srv-desc">{s.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── BEHIND THE SCENES STRIP ────────────────────────────────── -->
+    <section style="background: var(--bg); padding: clamp(60px, 8vw, 100px) 0;">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px;">
+        <div class="reveal-hidden" style="margin-bottom: 40px;">
+          <div class="eyebrow" style="margin-bottom: 12px;"><span class="dot"></span>En el set</div>
+          <h2 class="font-heading" style="font-size: clamp(1.8rem, 3.5vw, 3rem); line-height: 0.95; text-transform: uppercase; margin: 0;">
+            Detrás de <span style="color: var(--accent);">cámara.</span>
+          </h2>
+        </div>
+      </div>
+
+      <!-- Horizontal scroll strip of BTS images -->
+      <div class="bts-scroll">
+        <div class="bts-track">
+          {[
+            { label: 'Producción en set', meta: 'Behind the scenes' },
+            { label: 'Iluminación y cámara', meta: 'Setup técnico' },
+            { label: 'Dirección de arte', meta: 'Pre-producción' },
+            { label: 'Edición y color', meta: 'Post-producción' },
+            { label: 'Grabación de audio', meta: 'Sonido' },
+            { label: 'Locación exterior', meta: 'Outdoor shoot' },
+          ].map((item) => (
+            <div class="bts-item">
+              <div class="bts-ph">
+                <span class="bts-ph-label font-heading">{item.label}</span>
+                <span class="bts-ph-meta">{item.meta}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STATS ──────────────────────────────────────────────────── -->
+    <section style="background: var(--card); padding: clamp(60px, 8vw, 100px) 24px;">
+      <div style="max-width: 1280px; margin: 0 auto;">
+        <div class="stats-row">
+          {stats.map((s, i) => (
+            <div class="reveal-hidden stat-cell" style={`transition-delay: ${i * 0.1}s;`}>
+              <div class="stat-val font-heading">{s.val}</div>
+              <div class="stat-sep" aria-hidden="true"></div>
+              <div class="stat-label">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA FINAL ─────────────────────────────────────────────── -->
+    <section class="final-cta">
+      <div class="cta-grain" aria-hidden="true"></div>
+      <div class="final-cta-inner">
+        <div class="reveal-hidden">
+          <div class="eyebrow accent" style="justify-content: center; margin-bottom: 28px;">
+            <span class="dot"></span>Empecemos a grabar
+          </div>
+        </div>
+        <div class="reveal-hidden" style="transition-delay: 0.1s;">
+          <h2 class="font-heading final-h2">
+            Tu próximo proyecto<br />
+            <span class="h2-outline">merece verse</span><br />
+            así de bien.
+          </h2>
+        </div>
+        <div class="reveal-hidden" style="transition-delay: 0.2s; margin-top: 40px;">
+          <a href="https://wa.me/50689000108" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 1.1rem 2.4rem; font-size: 0.85rem;">
+            Hablemos de tu proyecto
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <CtaFooter />
+  </main>
+</Layout>
+
+
+<style>
+  /* ── HERO ─────────────────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0 24px;
+  }
+
+  /* Grain texture overlay */
+  .grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    background-repeat: repeat;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: clamp(90px, 12vh, 130px);
+    padding-bottom: clamp(50px, 7vh, 90px);
+    gap: clamp(20px, 3.5vh, 40px);
+  }
+
+  /* Top text block */
+  .hero-top {
+    text-align: center;
+  }
+
+  .hero-h1 {
+    font-size: clamp(2.6rem, 8vw, 7rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: var(--fg);
+    margin: 0;
+    letter-spacing: 0.01em;
+  }
+
+  .h1-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--fg);
+  }
+
+  /* ── FILM FRAME ────────────────────────────────────────────────── */
+  .film-frame-wrap {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.06),
+      0 40px 120px rgba(0,0,0,0.7),
+      0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  /* Film perforations strip */
+  .film-strip {
+    width: 16px;
+    flex-shrink: 0;
+    background: #0e0e0e;
+    position: relative;
+    overflow: hidden;
+  }
+  @media (min-width: 480px) { .film-strip { width: 22px; } }
+  @media (min-width: 768px) { .film-strip { width: 28px; } }
+  .sprocket-holes {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      180deg,
+      transparent 0px,
+      transparent 5px,
+      rgba(255, 255, 255, 0.08) 5px,
+      rgba(255, 255, 255, 0.08) 17px,
+      transparent 17px,
+      transparent 26px
+    );
+    background-size: 14px 26px;
+    background-position: center 13px;
+    background-repeat: repeat-y;
+  }
+
+  /* Main video/image area */
+  .film-viewport {
+    flex: 1;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    background: #080808;
+    border-left: 1px solid rgba(255,255,255,0.04);
+    border-right: 1px solid rgba(255,255,255,0.04);
+    overflow: hidden;
+  }
+
+  /* Placeholder content */
+  .main-ph {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 60%),
+      repeating-linear-gradient(
+        -45deg,
+        transparent 0, transparent 24px,
+        rgba(255,255,255,0.012) 24px, rgba(255,255,255,0.012) 25px
+      );
+  }
+
+  .ph-play {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    margin-bottom: 8px;
+    backdrop-filter: blur(8px);
+    background: rgba(232,119,34,0.08);
+    transition: transform 0.3s, background 0.3s;
+  }
+  .film-viewport:hover .ph-play {
+    transform: scale(1.08);
+    background: rgba(232,119,34,0.16);
+  }
+
+  .ph-label {
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted-stronger);
+  }
+
+  .ph-meta {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft-text);
+  }
+
+  /* CTAs row */
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  /* ── CAPABILITY STRIP ─────────────────────────────────────────── */
+  .cap-strip {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 16px 0;
+    background: var(--card);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .cap-track {
+    display: inline-block;
+    animation: cap-scroll 45s linear infinite;
+  }
+  .cap-item {
+    font-size: clamp(0.65rem, 1vw, 0.8rem);
+    letter-spacing: 0.2em;
+    color: var(--muted);
+  }
+  .cap-sep {
+    margin: 0 22px;
+    color: var(--accent);
+    opacity: 0.6;
+  }
+  @keyframes cap-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-25%); }
+  }
+
+  /* ── PORTFOLIO MASONRY ────────────────────────────────────────── */
+  .port-header {
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .port-h2 {
+    font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  /* 3-column masonry grid */
+  .masonry {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 240px;
+    gap: 8px;
+  }
+  @media (max-width: 768px) {
+    .masonry {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 160px;
+    }
+    .m-wide  { grid-column: span 2; }
+    .m-wide2 { grid-column: span 2; }
+    /* m-tall keeps grid-row: span 2 → portrait effect preserved at tablet */
+  }
+  @media (max-width: 520px) {
+    .masonry {
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 140px;
+    }
+    .m-tall { grid-row: span 1; }
+  }
+  @media (max-width: 380px) {
+    .masonry {
+      grid-template-columns: 1fr;
+      grid-auto-rows: 180px;
+    }
+    .m-wide, .m-tall, .m-wide2, .m-sq {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+  }
+
+  .m-wide  { grid-column: span 2; }
+  .m-tall  { grid-row: span 2; }
+  .m-wide2 { grid-column: span 2; }
+  .m-sq    { /* default: 1×1 */ }
+
+  .m-item {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    cursor: default;
+  }
+  .m-item:hover .m-ph-inner {
+    opacity: 1;
+  }
+
+  .m-ph {
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        transparent 0, transparent 22px,
+        rgba(255,255,255,0.012) 22px, rgba(255,255,255,0.012) 23px
+      );
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .m-ph-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+
+  .m-type-tag {
+    font-family: var(--font-body);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .m-ph-label {
+    font-size: clamp(0.75rem, 1.8vw, 1.1rem);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--fg);
+    line-height: 1.1;
+  }
+
+  .m-ph-meta {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    color: var(--soft-text);
+    text-transform: uppercase;
+  }
+
+  /* ── SERVICIOS GRID ───────────────────────────────────────────── */
+  .srv-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media (min-width: 640px) {
+    .srv-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .srv-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .srv-card {
+    background: var(--bg);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .srv-card:hover {
+    border-color: var(--hairline-strong);
+    transform: translateY(-3px);
+  }
+
+  /* Image placeholder */
+  .srv-img-ph {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: #0d0d0d;
+    overflow: hidden;
+  }
+  .srv-img-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+      repeating-linear-gradient(
+        -45deg,
+        transparent 0, transparent 20px,
+        rgba(255,255,255,0.015) 20px, rgba(255,255,255,0.015) 21px
+      );
+  }
+  .srv-img-n {
+    font-size: 4rem;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    user-select: none;
+  }
+  .srv-img-overlay {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+  }
+  .srv-img-tag {
+    font-family: var(--font-body);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .srv-info {
+    padding: 20px;
+  }
+  .srv-titulo {
+    font-size: clamp(1.1rem, 2.8vw, 1.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin: 0 0 8px;
+    line-height: 1.05;
+    color: var(--fg);
+  }
+  .srv-desc {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: var(--muted);
+    margin: 0;
+    font-weight: 300;
+  }
+
+  /* ── BTS SCROLL STRIP ─────────────────────────────────────────── */
+  .bts-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 24px;
+    /* Hide scrollbar but keep functionality */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .bts-scroll::-webkit-scrollbar { display: none; }
+
+  .bts-track {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+    padding-bottom: 4px;
+  }
+
+  .bts-item {
+    flex-shrink: 0;
+    width: clamp(220px, 28vw, 320px);
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--hairline);
+  }
+
+  .bts-ph {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background:
+      var(--card),
+      repeating-linear-gradient(
+        45deg,
+        transparent 0, transparent 18px,
+        rgba(255,255,255,0.012) 18px, rgba(255,255,255,0.012) 19px
+      );
+  }
+  .bts-ph-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted-stronger);
+    text-align: center;
+    padding: 0 12px;
+  }
+  .bts-ph-meta {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--soft-text);
+  }
+
+  /* ── STATS ────────────────────────────────────────────────────── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  @media (max-width: 540px) {
+    .stats-row { grid-template-columns: 1fr; }
+  }
+
+  .stat-cell {
+    background: var(--card);
+    padding: clamp(28px, 4vw, 48px) clamp(24px, 3vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stat-val {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-sep {
+    width: 28px;
+    height: 2px;
+    background: var(--hairline-strong);
+  }
+
+  .stat-label {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  /* ── FINAL CTA ────────────────────────────────────────────────── */
+  .final-cta {
+    position: relative;
+    background: var(--bg);
+    padding: clamp(100px, 16vw, 160px) 24px;
+    text-align: center;
+    overflow: hidden;
+    border-top: 1px solid var(--hairline);
+  }
+
+  /* Grain on CTA */
+  .cta-grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  .final-cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .final-h2 {
+    font-size: clamp(3rem, 7.5vw, 6.5rem);
+    line-height: 0.88;
+    text-transform: uppercase;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .h2-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--fg);
+  }
+</style>

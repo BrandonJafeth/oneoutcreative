@@ -28,15 +28,29 @@ const {
 </html>
 
 <script>
-  const observer = new IntersectionObserver(
+  // data-animate: secciones con is-visible (index page)
+  const animateObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
       });
     },
     { threshold: 0.1, rootMargin: '-80px' }
   );
-  document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+  document.querySelectorAll('[data-animate]').forEach((el) => animateObserver.observe(el));
+
+  // reveal-hidden: fade-up reveal usado en páginas de servicio
+  const revealObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-visible');
+          entry.target.classList.remove('reveal-hidden');
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+  );
+  document.querySelectorAll('.reveal-hidden').forEach((el) => revealObserver.observe(el));
 </script>
