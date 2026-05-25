@@ -212,7 +212,7 @@ const tipos = [
     background: var(--bg);
   }
   @media (min-width: 900px) {
-    .hero-wrap { grid-template-columns: 52% 48%; }
+    .hero-wrap { grid-template-columns: 1fr 1fr; }
   }
 
   .hero-left {
@@ -222,7 +222,9 @@ const tipos = [
     padding: clamp(120px, 12vh, 160px) 40px clamp(60px, 8vh, 100px);
   }
   @media (min-width: 900px) {
-    .hero-left { padding: clamp(120px, 12vh, 160px) 72px; }
+    .hero-left { 
+      padding: clamp(120px, 12vh, 160px) 4vw clamp(120px, 12vh, 160px) max(32px, calc((100vw - 1152px) / 2)); 
+    }
   }
 
   .hero-h1 {
@@ -260,7 +262,13 @@ const tipos = [
     padding: 40px 32px 60px 16px;
     min-height: 65vw;
   }
-  @media (min-width: 900px) { .hero-right { min-height: auto; padding: 60px 56px 60px 24px; } }
+  @media (min-width: 900px) { 
+    .hero-right { 
+      min-height: auto; 
+      padding: 60px max(32px, calc((100vw - 1152px) / 2)) 60px 4vw; 
+      justify-content: flex-start;
+    } 
+  }
 
   .hero-glow {
     position: absolute; top: 50%; left: 50%;
