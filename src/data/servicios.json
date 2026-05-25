@@ -4,20 +4,31 @@
     "kind": "Producción Audiovisual",
     "title": "Contenido que impacta visualmente",
     "body": "Fotografía, video y dirección de arte que transmiten tu esencia con estilo. Alto nivel visual diseñado para generar atención inmediata.",
-    "image": "https://res.cloudinary.com/dxvbifdfb/image/upload/v1768681994/gallery/ol28g8i9sl4doaxnotj3.jpg"
+    "image": "https://res.cloudinary.com/dxvbifdfb/image/upload/v1768681994/gallery/ol28g8i9sl4doaxnotj3.jpg",
+    "href": "#audiovisual"
   },
   {
     "eyebrow": "Estrategia",
     "kind": "Marketing Digital",
     "title": "Hacemos que te encuentren",
     "body": "Redes sociales, campañas en Google y estrategias de ventas reales. Cada anuncio tiene un propósito medible enfocado en multiplicar resultados.",
-    "image": "https://res.cloudinary.com/dxvbifdfb/image/upload/v1768702185/gallery/wntzftpd5lsnswt8ze4e.jpg"
+    "image": "https://res.cloudinary.com/dxvbifdfb/image/upload/v1768702185/gallery/wntzftpd5lsnswt8ze4e.jpg",
+    "href": "#marketing"
   },
   {
-    "eyebrow": "Soporte",
-    "kind": "Web & Marca",
-    "title": "Sitios web y Branding Inolvidable",
-    "body": "Plataformas optimizadas y diseño de identidad que refuerzan tu posición. El complemento perfecto para cerrar más tratos digitalmente.",
-    "image": "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777499085/520shots_so_lfogrw.jpg"
+    "eyebrow": "Tecnología",
+    "kind": "Sistemas Web",
+    "title": "Plataformas web que escalan negocio",
+    "body": "Desarrollo de sitios web rápidos, optimizados y enfocados en convertir visitantes en clientes reales digitalmente.",
+    "image": "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777499085/520shots_so_lfogrw.jpg",
+    "href": "/sistemas-web"
+  },
+  {
+    "eyebrow": "Identidad",
+    "kind": "Diseño & Marca",
+    "title": "Marcas memorables creativas",
+    "body": "Diseño de identidad visual sólida que conecta emocionalmente con tu audiencia y te diferencia de la competencia.",
+    "image": "https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_800/v1779745654/identidad-visual_yd23y7.jpg",
+    "href": "/diseno-marca"
   }
 ]

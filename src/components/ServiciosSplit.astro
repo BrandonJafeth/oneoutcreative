@@ -24,18 +24,20 @@ import services from '../data/servicios.json';
             <p style="margin-top: 22px; font-weight: 300; font-size: 1rem; line-height: 1.7; color: var(--muted); max-width: 460px; font-family: var(--font-body);">
               {s.body}
             </p>
-            <button class="btn-link" style="margin-top: 28px;">
-              Conocer más
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </button>
+            {s.href && (
+              <a href={s.href} class="btn-link" style="margin-top: 28px; text-decoration: none;">
+                Conocer más
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+            )}
           </div>
           <div class="split-visual">
             <div class="service-image-wrap">
               <img src={s.image} alt={s.title} loading="lazy" />
               <div class="img-overlay"></div>
-              <span class="corner-idx">{String(i + 1).padStart(2, "0")} / 03</span>
+              <span class="corner-idx">{String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}</span>
               <div class="meta-bottom" style="position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap;">
                 <span class="badge-orange" style="position: static;">{s.kind}</span>
                 <span class="meta-row" style="position: static;"><span class="dot"></span>San José · CR</span>

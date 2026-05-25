@@ -275,6 +275,8 @@ body {
     overflow: hidden;
     aspect-ratio: 1/1;
     background: var(--card);
+    transform: translateZ(0);
+    isolation: isolate;
   }
   @media (min-width: 768px) {
     .service-image-wrap {
@@ -295,8 +297,9 @@ body {
   }
   .img-overlay {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 40%);
+    inset: -1px; /* Prevents 1px anti-aliasing gaps during scale */
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 40%);
+    pointer-events: none;
   }
   .corner-idx {
     position: absolute;
