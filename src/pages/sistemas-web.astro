@@ -6,10 +6,10 @@ import CtaFooter from '../components/CtaFooter.astro';
 const SOLUTIONS_URL = 'https://one-out-solutions.vercel.app/';
 
 const tipos = [
-  { n: '01', titulo: 'Landing Pages',    texto: 'Diseñadas para cargar en menos de 2s y convertir desde el primer scroll. Copy + performance desde el inicio.' },
-  { n: '02', titulo: 'E-commerce',       texto: 'Catálogo, carrito, pagos y gestión en un solo sistema. Tu tienda disponible 24/7 sin fricción.' },
-  { n: '03', titulo: 'Plataformas Web',  texto: 'Lógica de negocio propia, flujos automatizados y APIs conectadas. Sin moldes genéricos.' },
-  { n: '04', titulo: 'Integraciones',    texto: 'CRM, WhatsApp, email y facturación. Tu stack digital unificado y funcionando en conjunto.' },
+  { n: '01', titulo: 'Landing Pages',    texto: 'Diseñadas para cargar rápido y captar la atención. Usamos buenas prácticas para ayudar a convertir visitas en contactos.' },
+  { n: '02', titulo: 'E-commerce',       texto: 'Catálogo, sistema de pagos y gestión integrados. Desarrollamos tiendas que facilitan la compra a tus clientes.' },
+  { n: '03', titulo: 'Plataformas Web',  texto: 'Adaptadas a tus procesos, conectando herramientas útiles con un código limpio y pensado para crecer.' },
+  { n: '04', titulo: 'Integraciones',    texto: 'Conectamos WhatsApp, email o sistemas extras para simplificar algunas partes de tu operación digital.' },
 ];
 ---
 <Layout
@@ -36,7 +36,7 @@ const tipos = [
         </div>
         <div class="reveal-hidden" style="transition-delay: 0.22s; margin-top: 28px;">
           <p class="hero-sub">
-            Construimos sitios web, tiendas y plataformas a medida que generan resultados reales. Código limpio, entrega rápida y métricas que lo prueban.
+            Construimos sitios web, tiendas y plataformas que se ajusten a tus necesidades, enfocándonos en un rendimiento sólido y un buen diseño.
           </p>
         </div>
         <div class="reveal-hidden" style="transition-delay: 0.34s; margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px;">
@@ -143,9 +143,9 @@ const tipos = [
       <div style="max-width: 1200px; margin: 0 auto;">
         <div class="nums-grid">
           {[
-            { v: '<2s',   l: 'Tiempo de carga',  s: 'promedio en nuestros proyectos' },
-            { v: '+180%', l: 'Más conversiones',  s: 'vs. sitio anterior del cliente' },
-            { v: '+340%', l: 'Leads por mes',     s: 'caso real · primeros 3 meses' },
+            { v: '<2s',   l: 'Tiempo de carga',  s: 'Tiempos de carga rápidos' },
+            { v: '+60%', l: 'Más conversiones',  s: 'Resultados reales de un cliente' },
+            { v: '+100%', l: 'Leads por mes',     s: 'Crecimiento de leads' },
           ].map((s, i) => (
             <div class="reveal-hidden num-cell" style={`transition-delay: ${i * 0.1}s;`}>
               <div class="font-heading num-val">{s.v}</div>
@@ -167,7 +167,7 @@ const tipos = [
             </div>
             <div class="reveal-hidden" style="transition-delay: 0.1s;">
               <h2 class="font-heading cta-h2">
-                Más de 20<br />proyectos<br />entregados.<br /><span style="color: var(--accent);">El tuyo puede<br />ser el próximo.</span>
+                Proyectos reales que generan resultados. <span style="color: var(--accent);">El tuyo puede ser el próximo.</span>
               </h2>
             </div>
           </div>
@@ -430,16 +430,30 @@ const tipos = [
   .cta-layout {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
     align-items: center;
   }
   @media (min-width: 768px) {
-    .cta-layout { grid-template-columns: 1fr 1fr; gap: 80px; }
+    .cta-layout { grid-template-columns: 1.1fr 1fr; gap: 50px; }
+  }
+  @media (min-width: 1024px) {
+    .cta-layout { grid-template-columns: 1.25fr 1fr; gap: 80px; }
   }
   .cta-h2 {
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    line-height: 0.92; letter-spacing: 0.01em;
+    font-size: clamp(2.3rem, 5vw, 4.2rem);
+    line-height: 0.95; letter-spacing: 0.01em;
     text-transform: uppercase; color: var(--fg); margin: 0;
+    text-wrap: balance;
   }
-  .cta-right { display: flex; flex-direction: column; }
+  .cta-right { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start;
+  }
+  @media (max-width: 640px) {
+    .cta-right .btn-primary {
+      align-self: stretch; /* Botón full-width en móvil */
+      justify-content: center;
+    }
+  }
 </style>

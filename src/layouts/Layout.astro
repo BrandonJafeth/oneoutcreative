@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import ThemeTweaks from "../components/ThemeTweaks.tsx";
 import CustomCursor from "../components/CustomCursor.astro";
 
 interface Props {
@@ -25,7 +24,6 @@ const {
 <body class="bg-background text-foreground antialiased">
   <CustomCursor />
   <slot />
-  <ThemeTweaks client:load />
 </body>
 </html>
 
