@@ -35,7 +35,7 @@ import services from '../data/servicios.json';
           </div>
           <div class="split-visual">
             <div class="service-image-wrap">
-              <img src={s.image} alt={s.title} loading="lazy" />
+              <img src={s.image} alt={s.title} loading="lazy" decoding="async" />
               <div class="img-overlay"></div>
               <span class="corner-idx">{String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}</span>
               <div class="meta-bottom" style="position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap;">
@@ -51,7 +51,7 @@ import services from '../data/servicios.json';
 </section>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('reveal-visible');
@@ -60,6 +60,9 @@ import services from '../data/servicios.json';
         // Also trigger image scale effect if applicable
         const imgWrap = entry.target.querySelector('.service-image-wrap');
         if (imgWrap) imgWrap.classList.add('in-view');
+        
+        // Stop observing to save mobile CPU
+        obs.unobserve(entry.target);
       }
     });
   }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
