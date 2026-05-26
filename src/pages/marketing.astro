@@ -256,7 +256,9 @@ const despues = [
         </div>
 
         <div class="gallery-grid">
-          <div class="reveal-hidden gal-card gal-wide" style="transition-delay: 0.05s;">
+          <div class="reveal-hidden gal-card" style="transition-delay: 0.05s;">
+            <img src="https://images.pexels.com/photos/3786157/pexels-photo-3786157.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Campaña Sector Salud" class="gal-img" loading="lazy" width="16" height="9" />
+            <div class="gal-img-overlay"></div>
             <div class="gal-placeholder">
               <span class="gal-ph-label font-heading">Campaña · Sector Salud</span>
               <span class="gal-ph-meta">+340% leads · 3 meses</span>
@@ -267,6 +269,8 @@ const despues = [
           </div>
 
           <div class="reveal-hidden gal-card" style="transition-delay: 0.1s;">
+            <img src="https://images.pexels.com/photos/5632398/pexels-photo-5632398.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&dpr=1" alt="Campaña E-commerce" class="gal-img" loading="lazy" width="4" height="5" />
+            <div class="gal-img-overlay"></div>
             <div class="gal-placeholder">
               <span class="gal-ph-label font-heading">Campaña · E-commerce</span>
               <span class="gal-ph-meta">ROAS 6.2x</span>
@@ -277,6 +281,8 @@ const despues = [
           </div>
 
           <div class="reveal-hidden gal-card" style="transition-delay: 0.15s;">
+            <img src="https://images.pexels.com/photos/1126728/pexels-photo-1126728.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&dpr=1" alt="Campaña Restaurante" class="gal-img" loading="lazy" width="4" height="5" />
+            <div class="gal-img-overlay"></div>
             <div class="gal-placeholder">
               <span class="gal-ph-label font-heading">Campaña · Restaurante</span>
               <span class="gal-ph-meta">+180% reservas</span>
@@ -287,6 +293,8 @@ const despues = [
           </div>
 
           <div class="reveal-hidden gal-card" style="transition-delay: 0.2s;">
+            <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&dpr=1" alt="Campaña Inmobiliaria" class="gal-img" loading="lazy" width="4" height="5" />
+            <div class="gal-img-overlay"></div>
             <div class="gal-placeholder">
               <span class="gal-ph-label font-heading">Campaña · Inmobiliaria</span>
               <span class="gal-ph-meta">Costo/lead -74%</span>
@@ -297,6 +305,8 @@ const despues = [
           </div>
 
           <div class="reveal-hidden gal-card" style="transition-delay: 0.25s;">
+            <img src="https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&dpr=1" alt="Campaña Educación" class="gal-img" loading="lazy" width="4" height="5" />
+            <div class="gal-img-overlay"></div>
             <div class="gal-placeholder">
               <span class="gal-ph-label font-heading">Campaña · Educación</span>
               <span class="gal-ph-meta">4,200 inscripciones</span>
@@ -327,7 +337,7 @@ const despues = [
         </div>
         <div class="reveal-hidden" style="transition-delay: 0.2s;">
           <p class="cta-sub">
-            Cada día sin estrategia digital es una oportunidad que se lleva alguien más. Hablemos hoy — la primera sesión es sin costo.
+            Cada día sin estrategia digital es una oportunidad que se lleva alguien más. Hablemos hoy, la primera sesión es sin costo.
           </p>
         </div>
         <div class="reveal-hidden cta-btns" style="transition-delay: 0.3s;">
@@ -879,34 +889,70 @@ const despues = [
     border-radius: 9999px;
   }
 
-  /* ── GALERÍA PLACEHOLDERS ─────────────────────────────────────── */
+  /* ── GALERÍA BENTO GRID ───────────────────────────────────────── */
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto;
     gap: 12px;
-  }
-  @media (max-width: 768px) {
-    .gallery-grid { grid-template-columns: 1fr 1fr; }
-    .gal-wide { grid-column: span 2; }
-  }
-  @media (max-width: 480px) {
-    .gallery-grid { grid-template-columns: 1fr; }
-    .gal-wide { grid-column: span 1; }
   }
 
   .gal-card {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    aspect-ratio: 4/5;
     background: var(--bg);
     border: 1px solid var(--hairline);
     cursor: default;
   }
-  .gal-wide {
+
+  .gallery-grid > .gal-card:nth-child(1) {
     grid-column: span 2;
     aspect-ratio: 16/9;
+  }
+  .gallery-grid > .gal-card:nth-child(2),
+  .gallery-grid > .gal-card:nth-child(3) {
+    aspect-ratio: 4/5;
+  }
+  .gallery-grid > .gal-card:nth-child(4),
+  .gallery-grid > .gal-card:nth-child(5) {
+    grid-column: span 2;
+    aspect-ratio: 3/2;
+  }
+
+  @media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid > .gal-card:nth-child(4),
+    .gallery-grid > .gal-card:nth-child(5) {
+      grid-column: span 1;
+      aspect-ratio: 4/5;
+    }
+  }
+  @media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-grid > .gal-card {
+      grid-column: span 1 !important;
+      aspect-ratio: 4/5;
+    }
+    .gallery-grid > .gal-card:nth-child(1) { aspect-ratio: 16/9; }
+  }
+
+  .gal-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .gal-card:hover .gal-img {
+    transform: scale(1.06);
+  }
+  .gal-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.35) 50%, rgba(10,10,10,0.15) 100%);
+    pointer-events: none;
+    z-index: 1;
   }
 
   .gal-placeholder {
@@ -917,21 +963,13 @@ const despues = [
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background:
-      linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 50%),
-      repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 20px,
-        rgba(255,255,255,0.015) 20px,
-        rgba(255,255,255,0.015) 21px
-      );
+    z-index: 2;
   }
   .gal-ph-label {
     font-size: clamp(0.7rem, 1.5vw, 1rem);
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: var(--muted-stronger);
+    color: rgba(255,255,255,0.9);
     text-align: center;
     padding: 0 16px;
   }
@@ -953,6 +991,7 @@ const despues = [
     padding: 16px;
     opacity: 0;
     transition: opacity 0.35s ease;
+    z-index: 3;
   }
   .gal-card:hover .gal-overlay { opacity: 1; }
 
