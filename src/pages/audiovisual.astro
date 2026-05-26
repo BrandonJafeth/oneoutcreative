@@ -3,6 +3,25 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import CtaFooter from '../components/CtaFooter.astro';
 
+const portfolioMasonryFotos = [
+  'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://images.pexels.com/photos/4938190/pexels-photo-4938190.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://images.pexels.com/photos/2833037/pexels-photo-2833037.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://images.pexels.com/photos/1117132/pexels-photo-1117132.jpeg?auto=compress&cs=tinysrgb&w=600',
+];
+
+const portfolioFotos = [
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779757053/eqgwgqqqzmhlwj4vpofu.avif',
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779757051/p0bd8uw9hdytmw40qjal.avif',
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779757168/k6ofxsrmq3w3k1yvsrjz.avif',
+];
+
+const portfolioVideos = [
+  'https://res.cloudinary.com/dxrzwnjee/video/upload/v1779755916/eqbt3bl5owyz3ykfl6ue.mp4',
+  'https://res.cloudinary.com/dxrzwnjee/video/upload/v1779758017/wqzo1gsqiipkndenf3sm.mp4',
+  'https://res.cloudinary.com/dxrzwnjee/video/upload/v1779758178/hk4qekiaj7ds7uosyx07.mp4',
+];
+
 const servicios = [
   {
     n: '01',
@@ -34,6 +53,15 @@ const servicios = [
     titulo: 'Cobertura de Eventos',
     desc: 'Lanzamientos, conferencias y activaciones. Documentamos los momentos que tu marca no puede perder.',
   },
+];
+
+const btsFotos = [
+  'https://images.pexels.com/photos/3062541/pexels-photo-3062541.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://images.pexels.com/photos/4125600/pexels-photo-4125600.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779757051/p0bd8uw9hdytmw40qjal.avif',
+  'https://images.pexels.com/photos/8353774/pexels-photo-8353774.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779758551/jxypvrmfh0csuvzkpa2h.avif',
+  'https://images.pexels.com/photos/36181973/pexels-photo-36181973.jpeg?auto=compress&cs=tinysrgb&w=600',
 ];
 
 const stats = [
@@ -134,7 +162,10 @@ const stats = [
 
           <!-- Fila 1 -->
           <div class="reveal-hidden m-item m-wide" style="transition-delay: 0.05s;">
-            <div class="m-ph">
+            <div class="m-ph" style="background: none;">
+              <video autoplay muted loop playsinline class="m-video-bg">
+                <source src={portfolioVideos[0]} type="video/mp4" />
+              </video>
               <div class="m-ph-inner">
                 <div class="m-type-tag">▶ VIDEO</div>
                 <span class="m-ph-label font-heading">Campaña Corporativa</span>
@@ -144,7 +175,8 @@ const stats = [
           </div>
 
           <div class="reveal-hidden m-item m-tall" style="transition-delay: 0.1s;">
-            <div class="m-ph">
+            <div class="m-ph" style="background: none;">
+              <img src={portfolioMasonryFotos[0]} alt="" class="m-img-bg" loading="lazy" width="600" height="900" />
               <div class="m-ph-inner">
                 <div class="m-type-tag">◉ FOTO</div>
                 <span class="m-ph-label font-heading">Retrato Ejecutivo</span>
@@ -154,7 +186,8 @@ const stats = [
           </div>
 
           <div class="reveal-hidden m-item m-sq" style="transition-delay: 0.12s;">
-            <div class="m-ph">
+            <div class="m-ph" style="background: none;">
+              <img src={portfolioMasonryFotos[1]} alt="" class="m-img-bg" loading="lazy" width="600" height="600" />
               <div class="m-ph-inner">
                 <div class="m-type-tag">◉ FOTO</div>
                 <span class="m-ph-label font-heading">Producto</span>
@@ -164,7 +197,10 @@ const stats = [
           </div>
 
           <div class="reveal-hidden m-item m-sq" style="transition-delay: 0.15s;">
-            <div class="m-ph">
+            <div class="m-ph" style="background: none;">
+              <video autoplay muted loop playsinline class="m-video-bg">
+                <source src={portfolioVideos[1]} type="video/mp4" />
+              </video>
               <div class="m-ph-inner">
                 <div class="m-type-tag">▶ REEL</div>
                 <span class="m-ph-label font-heading">Instagram Reel</span>
@@ -175,7 +211,8 @@ const stats = [
 
           <!-- Fila 2 -->
           <div class="reveal-hidden m-item m-sq" style="transition-delay: 0.18s;">
-            <div class="m-ph">
+            <div class="m-ph" style="background: none;">
+              <img src={portfolioMasonryFotos[2]} alt="" class="m-img-bg" loading="lazy" width="600" height="600" />
               <div class="m-ph-inner">
                 <div class="m-type-tag">◉ FOTO</div>
                 <span class="m-ph-label font-heading">Evento</span>
@@ -185,7 +222,10 @@ const stats = [
           </div>
 
           <div class="reveal-hidden m-item m-wide2" style="transition-delay: 0.2s;">
-            <div class="m-ph">
+            <div class="m-ph" style="background: none;">
+              <video autoplay muted loop playsinline class="m-video-bg">
+                <source src={portfolioVideos[2]} type="video/mp4" />
+              </video>
               <div class="m-ph-inner">
                 <div class="m-type-tag">▶ VIDEO</div>
                 <span class="m-ph-label font-heading">Lanzamiento de Marca</span>
@@ -195,7 +235,8 @@ const stats = [
           </div>
 
           <div class="reveal-hidden m-item m-sq" style="transition-delay: 0.22s;">
-            <div class="m-ph">
+            <div class="m-ph" style="background: none;">
+              <img src={portfolioMasonryFotos[3]} alt="" class="m-img-bg" loading="lazy" width="600" height="600" />
               <div class="m-ph-inner">
                 <div class="m-type-tag">◉ FOTO</div>
                 <span class="m-ph-label font-heading">Behind the Scenes</span>
@@ -224,14 +265,18 @@ const stats = [
         <div class="srv-grid">
           {servicios.map((s, i) => (
             <div class="reveal-hidden srv-card" style={`transition-delay: ${(i % 3) * 0.08}s;`}>
-              <!-- Placeholder imagen por servicio -->
               <div class="srv-img-ph">
-                <div class="srv-img-inner">
+                {i % 2 === 0 && (
+                  <video autoplay muted loop playsinline class="srv-video-bg">
+                    <source src={portfolioVideos[Math.floor(i / 2)]} type="video/mp4" />
+                  </video>
+                )}
+                {i % 2 !== 0 && (
+                  <img src={portfolioFotos[Math.floor(i / 2)]} alt="" class="srv-foto-bg" loading="lazy" width="640" height="480" />
+                )}
+                {/* <div class="srv-img-inner" style={i % 2 === 0 ? 'background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%);' : 'background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 100%);'}>
                   <span class="srv-img-n font-heading">{s.n}</span>
-                </div>
-                <div class="srv-img-overlay">
-                  <span class="srv-img-tag">{i % 2 === 0 ? '▶ VIDEO' : '◉ FOTO'}</span>
-                </div>
+                </div>*/}
               </div>
               <div class="srv-info">
                 <h3 class="font-heading srv-titulo">{s.titulo}</h3>
@@ -265,11 +310,14 @@ const stats = [
             { label: 'Edición y color', meta: 'Post-producción' },
             { label: 'Grabación de audio', meta: 'Sonido' },
             { label: 'Locación exterior', meta: 'Outdoor shoot' },
-          ].map((item) => (
+          ].map((item, i) => (
             <div class="bts-item">
               <div class="bts-ph">
-                <span class="bts-ph-label font-heading">{item.label}</span>
-                <span class="bts-ph-meta">{item.meta}</span>
+                <img src={btsFotos[i]} alt={item.label} class="bts-img-bg" loading="lazy" width="600" height="450" />
+                <div class="bts-ph-overlay">
+                  <span class="bts-ph-label font-heading">{item.label}</span>
+                  <span class="bts-ph-meta">{item.meta}</span>
+                </div>
               </div>
             </div>
           ))}
@@ -584,6 +632,26 @@ const stats = [
     opacity: 1;
   }
 
+  .m-video-bg,
+  .m-img-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, opacity 0.4s;
+  }
+  .m-video-bg {
+    opacity: 0.6;
+  }
+  .m-item:hover .m-video-bg {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+  .m-item:hover .m-img-bg {
+    transform: scale(1.05);
+  }
+
   .m-ph {
     position: absolute;
     inset: 0;
@@ -664,6 +732,28 @@ const stats = [
     background: #0d0d0d;
     overflow: hidden;
   }
+  .srv-video-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .srv-card:hover .srv-video-bg {
+    transform: scale(1.05);
+  }
+  .srv-foto-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .srv-card:hover .srv-foto-bg {
+    transform: scale(1.05);
+  }
   .srv-img-inner {
     position: absolute;
     inset: 0;
@@ -743,9 +833,31 @@ const stats = [
     overflow: hidden;
     position: relative;
     border: 1px solid var(--hairline);
+    cursor: default;
+  }
+  .bts-item:hover .bts-img-bg {
+    transform: scale(1.05);
+  }
+  .bts-item:hover .bts-ph-overlay {
+    opacity: 1;
   }
 
   .bts-ph {
+    position: absolute;
+    inset: 0;
+    background: var(--card);
+  }
+
+  .bts-img-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .bts-ph-overlay {
     position: absolute;
     inset: 0;
     display: flex;
@@ -753,19 +865,16 @@ const stats = [
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background:
-      var(--card),
-      repeating-linear-gradient(
-        45deg,
-        transparent 0, transparent 18px,
-        rgba(255,255,255,0.012) 18px, rgba(255,255,255,0.012) 19px
-      );
+    background: rgba(0,0,0,0.4);
+    opacity: 0.75;
+    transition: opacity 0.3s;
   }
+
   .bts-ph-label {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--muted-stronger);
+    color: var(--fg);
     text-align: center;
     padding: 0 12px;
   }
@@ -774,7 +883,7 @@ const stats = [
     font-size: 0.6rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--soft-text);
+    color: rgba(255,255,255,0.7);
   }
 
   /* ── STATS ────────────────────────────────────────────────────── */
