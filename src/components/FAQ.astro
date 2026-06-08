@@ -1,13 +1,25 @@
 ---
-import faqs from '../data/faqs.json';
+import defaultFaqs from '../data/faqs.json';
+
+interface Props {
+  items?: { pregunta: string; respuesta: string }[];
+  label?: string;
+  heading?: string;
+}
+const {
+  items,
+  label = 'PREGUNTAS FRECUENTES',
+  heading = 'LO QUE MÁS NOS PREGUNTAN',
+} = Astro.props;
+const faqs = items ?? defaultFaqs;
 ---
 <section class="bg-background py-24 md:py-32">
   <div class="max-w-3xl mx-auto px-6">
     <div class="text-center mb-16">
       <div class="liquid-glass rounded-full px-4 py-1.5 inline-flex items-center mb-5">
-        <span class="text-xs font-body font-semibold tracking-[0.2em] uppercase text-[#e87722]">PREGUNTAS FRECUENTES</span>
+        <span class="text-xs font-body font-semibold tracking-[0.2em] uppercase text-[#e87722]">{label}</span>
       </div>
-      <h2 class="font-heading text-3xl md:text-5xl text-white uppercase tracking-wide text-balance">LO QUE MÁS NOS PREGUNTAN</h2>
+      <h2 class="font-heading text-3xl md:text-5xl text-white uppercase tracking-wide text-balance">{heading}</h2>
     </div>
 
     <div id="faq-list">

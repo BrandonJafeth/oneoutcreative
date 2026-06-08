@@ -1,16 +1,30 @@
 ---
-import pasos from '../data/pasos.json';
+import defaultPasos from '../data/pasos.json';
+
+interface Props {
+  data?: { n: string; t: string; d: string }[];
+  eyebrow?: string;
+  heading?: string;
+  subtext?: string;
+}
+const {
+  data,
+  eyebrow = 'Nuestro Proceso',
+  heading = 'De la idea<br /> al resultado',
+  subtext = 'Un proceso claro, sin vueltas. Sabés exactamente qué pasa en cada etapa, con entregables y métricas a la vista.',
+} = Astro.props;
+const pasos = data ?? defaultPasos;
 ---
 <section id="proceso" style="background: var(--card); padding: clamp(60px, 10vw, 120px) 24px; position: relative;">
   <div style="max-width: 1200px; margin: 0 auto;">
     <div style="gap: 24px; align-items: end; margin-bottom: 56px;" class="grid md:grid-cols-2 grid-cols-1">
       <div class="reveal-hidden delay-0">
-        <div class="eyebrow"><span class="dot"></span>Nuestro Proceso</div>
-        <h2 class="sec-heading" style="margin-top: 14px;">De la idea<br /> al resultado</h2>
+        <div class="eyebrow"><span class="dot"></span>{eyebrow}</div>
+        <h2 class="sec-heading" style="margin-top: 14px;" set:html={heading} />
       </div>
       <div class="reveal-hidden delay-1 md:text-right">
         <p style="font-weight: 300; color: var(--muted); font-size: 1rem; line-height: 1.65; max-width: 420px; font-family: var(--font-body);" class="md:ml-auto ml-0 mt-2 md:mt-0 text-left md:text-right">
-          Un proceso claro, sin vueltas. Sabés exactamente qué pasa en cada etapa, con entregables y métricas a la vista.
+          {subtext}
         </p>
       </div>
     </div>

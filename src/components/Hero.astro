@@ -1,4 +1,25 @@
 ---
+interface Props {
+  eyebrow?: string;
+  line1?: string;
+  line2?: string;
+  line3?: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaSecondaryText?: string;
+  ctaSecondaryHref?: string;
+}
+const {
+  eyebrow = 'Agencia de Marketing · Guanacaste, CR',
+  line1 = 'MARKETING',
+  line2 = 'GUANACASTE',
+  line3 = '& AUDIOVISUAL.',
+  subtitle = 'Tu marca hecha para dominar. La agencia de marketing digital y producción audiovisual en Guanacaste, Costa Rica que convierte tu negocio en el referente de Nicoya, Tamarindo, Nosara y toda la zona.',
+  ctaText = 'Hablemos por WhatsApp',
+  ctaSecondaryText = 'Ver Testimonios',
+  ctaSecondaryHref = '#testimonios',
+} = Astro.props;
+
 const VIDEO_MP4 = 'https://res.cloudinary.com/dkwvaxxdw/video/upload/v1779291255/8126637-hd_1920_1080_25fps_knqueu.mp4';
 const HERO_POSTER = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_1920/v1779291512/pexels-silverkblack-36697542_gbzfwm.jpg';
 ---
@@ -14,24 +35,23 @@ const HERO_POSTER = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_
 
   <div style="position: relative; z-index: 3; text-align: center; padding: 0 24px; max-width: 1200px; margin: 0 auto; width: 100%;">
     <div class="reveal-hidden delay-0" style="margin-bottom: 28px;">
-      <div class="eyebrow accent" style="justify-content: center; white-space: nowrap;"><span class="dot"></span>Agencia de Marketing · Guanacaste, CR</div>
+      <div class="eyebrow accent" style="justify-content: center; white-space: nowrap;"><span class="dot"></span>{eyebrow}</div>
     </div>
     <h1 class="hero-heading" style="margin-top: 0; color: #fff;">
       <span style="display: block; overflow: hidden;">
-        <span class="reveal-hidden delay-1" style="display: inline-block; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,0.35);">MARKETING</span>
+        <span class="reveal-hidden delay-1" style="display: inline-block; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,0.35);">{line1}</span>
       </span>
       <span style="display: block; overflow: hidden;">
-        <span class="reveal-hidden delay-2" style="display: inline-block; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,0.35);">GUANACASTE</span>
+        <span class="reveal-hidden delay-2" style="display: inline-block; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,0.35);">{line2}</span>
       </span>
       <span style="display: block; overflow: hidden;">
-        <span class="reveal-hidden delay-3" style="display: inline-block; color: var(--accent); text-shadow: 0 2px 30px rgba(232,119,34,0.35);">& AUDIOVISUAL.</span>
+        <span class="reveal-hidden delay-3" style="display: inline-block; color: var(--accent); text-shadow: 0 2px 30px rgba(232,119,34,0.35);">{line3}</span>
       </span>
     </h1>
 
     <div class="reveal-hidden delay-4">
       <p style="font-weight: 300; font-size: 1.05rem; line-height: 1.65; color: rgba(255,255,255,0.78); max-width: 600px; margin: 24px auto 0; text-wrap: pretty; text-shadow: 0 1px 12px rgba(0,0,0,0.4); font-family: var(--font-body);">
-        Tu marca hecha para dominar. La agencia de marketing digital y producción audiovisual en Guanacaste, Costa Rica
-        que convierte tu negocio en el referente de Nicoya, Tamarindo, Nosara y toda la zona.
+        {subtitle}
       </p>
     </div>
 
@@ -40,9 +60,9 @@ const HERO_POSTER = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
         </svg>
-        Hablemos por WhatsApp
+        {ctaText}
       </a>
-      <a href="#testimonios" class="btn-ghost liquid-glass-strong" style="color: #fff;">Ver Testimonios</a>
+      <a href={ctaSecondaryHref} class="btn-ghost liquid-glass-strong" style="color: #fff;">{ctaSecondaryText}</a>
     </div>
   </div>
 

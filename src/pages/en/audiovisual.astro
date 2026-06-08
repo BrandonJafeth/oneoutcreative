@@ -1,0 +1,976 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import CtaFooter from '../../components/CtaFooter.astro';
+
+const pexelsSet = (url: string, w: number) => url.replace(/w=\d+/, `w=${w}`);
+
+const masonryImgSrcset = (url: string) =>
+  `${pexelsSet(url, 320)} 320w, ${pexelsSet(url, 600)} 600w, ${pexelsSet(url, 900)} 900w`;
+const masonryImgSizes = '(max-width: 380px) 100vw, (max-width: 520px) 50vw, (max-width: 768px) 50vw, 33vw';
+
+const btsImgSrcset = (url: string) => {
+  if (url.includes('pexels')) {
+    return `${pexelsSet(url, 240)} 240w, ${pexelsSet(url, 480)} 480w, ${pexelsSet(url, 720)} 720w`;
+  }
+  return `${url.replace('/upload/', '/upload/f_auto,q_auto,w_240/')} 240w, ${url.replace('/upload/', '/upload/f_auto,q_auto,w_480/')} 480w`;
+};
+const btsImgSizes = '(max-width: 520px) 50vw, 28vw';
+
+const cloudinaryPoster = (videoUrl: string) =>
+  videoUrl.replace('/video/upload/', '/video/upload/so_0,f_auto,q_auto,w_480/').replace('.mp4', '.jpg');
+
+const portfolioMasonryFotos = [
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779830312/nvloibahw7ybvwbuqcyx.avif',
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779757053/eqgwgqqqzmhlwj4vpofu.avif',
+  'https://images.pexels.com/photos/2833037/pexels-photo-2833037.jpeg?auto=compress&cs=tinysrgb&w=600',
+  'https://images.pexels.com/photos/1117132/pexels-photo-1117132.jpeg?auto=compress&cs=tinysrgb&w=600',
+];
+
+const portfolioFotos = [
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779757053/eqgwgqqqzmhlwj4vpofu.avif',
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779757051/p0bd8uw9hdytmw40qjal.avif',
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779757168/k6ofxsrmq3w3k1yvsrjz.avif',
+];
+
+const portfolioVideos = [
+  'https://res.cloudinary.com/dxrzwnjee/video/upload/v1779755916/eqbt3bl5owyz3ykfl6ue.mp4',
+  'https://res.cloudinary.com/dxrzwnjee/video/upload/v1779758017/wqzo1gsqiipkndenf3sm.mp4',
+  'https://res.cloudinary.com/dxrzwnjee/video/upload/v1779758178/hk4qekiaj7ds7uosyx07.mp4',
+];
+
+const servicios = [
+  {
+    n: '01',
+    titulo: 'Corporate Video',
+    desc: 'Your story, told with purpose. Full production from script to final delivery.',
+  },
+  {
+    n: '02',
+    titulo: 'Commercial Photography',
+    desc: 'Products, team, spaces. Art-directed images that sell before anyone reads a word.',
+  },
+  {
+    n: '03',
+    titulo: 'Social Media Content',
+    desc: 'Reels, stories, and native formats. We capture attention in the first 3 seconds.',
+  },
+  {
+    n: '04',
+    titulo: 'Art Direction',
+    desc: 'Visual concepts, moodboards, styling, and on-set production. Every detail controlled.',
+  },
+  {
+    n: '05',
+    titulo: 'Post-Production',
+    desc: 'Editing, color grading, motion graphics, and audio. From raw footage to the final result.',
+  },
+  {
+    n: '06',
+    titulo: 'Event Coverage',
+    desc: 'Launches, conferences, and activations. We document the moments your brand cannot afford to miss.',
+  },
+];
+
+const btsFotos = [
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779813391/pj4qetqkwutodmp0wdwk.avif',
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779813362/edzvx1omzw7xlwovmtxp.avif',
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779757051/p0bd8uw9hdytmw40qjal.avif',
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779813293/ydnme0g6xpv6lajq7ucs.avif',
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779758551/jxypvrmfh0csuvzkpa2h.avif',
+  'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779813281/gmxxdso04mcemsbmwkkw.avif',
+];
+
+const stats = [
+  { val: '+200', label: 'Projects produced' },
+  { val: '4K',   label: 'Max resolution' },
+  { val: '48h',  label: 'Express content delivery' },
+];
+---
+<Layout
+  title="Photo & Video Production in Guanacaste, Costa Rica | One Out Creative"
+  description="Professional photography and video in Guanacaste, Costa Rica. Corporate video, weddings, real estate photography, and social media content in Nicoya, Tamarindo, and Nosara."
+  lang="en"
+  hreflangEs="https://oneoutcr.net/audiovisual"
+  hreflangEn="https://oneoutcr.net/en/audiovisual"
+>
+  <Navbar lang="en" />
+  <main id="top">
+
+    <!-- ── HERO: FILM FRAME ───────────────────────────────────────── -->
+    <section class="hero">
+
+      <div class="grain" aria-hidden="true"></div>
+
+      <div class="hero-content">
+
+        <div class="hero-top">
+          <div class="reveal-hidden">
+            <div class="eyebrow accent" style="justify-content: center; margin-bottom: 20px;">
+              <span class="dot"></span>Photo & Video · Guanacaste, CR
+            </div>
+          </div>
+          <div class="reveal-hidden" style="transition-delay: 0.08s;">
+            <h1 class="font-heading hero-h1">
+              We make your<br />
+              <span class="h1-outline">story</span><br />
+              unforgettable.
+            </h1>
+          </div>
+        </div>
+
+        <div class="reveal-hidden film-frame-wrap" style="transition-delay: 0.18s;">
+          <div class="film-strip film-left" aria-hidden="true">
+            <div class="sprocket-holes"></div>
+          </div>
+
+          <div class="film-viewport">
+            <div class="main-ph">
+              <div class="ph-play" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+              <span class="ph-label font-heading">SHOWREEL 2025</span>
+              <span class="ph-meta">Main video · 16:9</span>
+            </div>
+          </div>
+
+          <div class="film-strip film-right" aria-hidden="true">
+            <div class="sprocket-holes"></div>
+          </div>
+        </div>
+
+        <div class="reveal-hidden hero-ctas" style="transition-delay: 0.28s;">
+          <a href="https://wa.me/50689000108" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 0.95rem 2rem; font-size: 0.82rem;">
+            Get my video
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <a href="#portfolio" class="btn-ghost liquid-glass-strong" style="padding: 0.95rem 2rem; font-size: 0.82rem;">
+            See portfolio
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CAPABILITY STRIP ───────────────────────────────────────── -->
+    <div class="cap-strip" aria-hidden="true">
+      <div class="cap-track">
+        {Array(4).fill(['CORPORATE VIDEO', 'PHOTOGRAPHY', 'REELS & STORIES', 'COLOR GRADING', 'ART DIRECTION', 'MOTION GRAPHICS', 'LIVE COVERAGE', 'POST-PRODUCTION']).flat().map((c) => (
+          <span class="cap-item font-heading">{c}<span class="cap-sep">—</span></span>
+        ))}
+      </div>
+    </div>
+
+    <!-- ── PORTFOLIO MASONRY ───────────────────────────────────────── -->
+    <section id="portfolio" style="background: var(--bg); padding: clamp(80px, 10vw, 120px) 24px;">
+      <div style="max-width: 1280px; margin: 0 auto;">
+
+        <div class="reveal-hidden port-header">
+          <div class="eyebrow" style="margin-bottom: 12px;"><span class="dot"></span>Portfolio</div>
+          <h2 class="font-heading port-h2">
+            The work<br /><span style="color: var(--accent);">speaks for itself.</span>
+          </h2>
+        </div>
+
+        <div class="masonry">
+
+          <div class="reveal-hidden m-item m-wide" style="transition-delay: 0.05s;">
+            <div class="m-ph" style="background: none;">
+              <video data-av-lazy muted loop playsinline class="m-video-bg" preload="none" poster={cloudinaryPoster(portfolioVideos[0])}>
+                <source src={portfolioVideos[0]} type="video/mp4" />
+              </video>
+              <div class="m-ph-inner">
+                <div class="m-type-tag">▶ VIDEO</div>
+                <span class="m-ph-label font-heading">Corporate Campaign</span>
+                <span class="m-ph-meta">Video · 16:9 · 2:30 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden m-item m-sq" style="transition-delay: 0.1s;">
+            <div class="m-ph" style="background: none;">
+              <img src={portfolioMasonryFotos[0]} srcset={masonryImgSrcset(portfolioMasonryFotos[0])} sizes={masonryImgSizes} alt="" class="m-img-bg" loading="lazy" decoding="async" width="600" height="900" />
+              <div class="m-ph-inner">
+                <div class="m-type-tag">◉ PHOTO</div>
+                <span class="m-ph-label font-heading">Executive Portrait</span>
+                <span class="m-ph-meta">Photography · Portrait</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden m-item m-sq" style="transition-delay: 0.12s;">
+            <div class="m-ph" style="background: none;">
+              <img src={portfolioMasonryFotos[1]} srcset={masonryImgSrcset(portfolioMasonryFotos[1])} sizes={masonryImgSizes} alt="" class="m-img-bg" loading="lazy" decoding="async" width="600" height="600" />
+              <div class="m-ph-inner">
+                <div class="m-type-tag">◉ PHOTO</div>
+                <span class="m-ph-label font-heading">Product</span>
+                <span class="m-ph-meta">Photography · Square</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden m-item m-sq" style="transition-delay: 0.15s;">
+            <div class="m-ph" style="background: none;">
+              <video data-av-lazy muted loop playsinline class="m-video-bg" preload="none" poster={cloudinaryPoster(portfolioVideos[1])}>
+                <source src={portfolioVideos[1]} type="video/mp4" />
+              </video>
+              <div class="m-ph-inner">
+                <div class="m-type-tag">▶ REEL</div>
+                <span class="m-ph-label font-heading">Instagram Reel</span>
+                <span class="m-ph-meta">Video · 9:16 · 30s</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden m-item m-sq" style="transition-delay: 0.18s;">
+            <div class="m-ph" style="background: none;">
+              <img src={portfolioMasonryFotos[2]} srcset={masonryImgSrcset(portfolioMasonryFotos[2])} sizes={masonryImgSizes} alt="" class="m-img-bg" loading="lazy" decoding="async" width="600" height="600" />
+              <div class="m-ph-inner">
+                <div class="m-type-tag">◉ PHOTO</div>
+                <span class="m-ph-label font-heading">Event</span>
+                <span class="m-ph-meta">Photography · Square</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden m-item m-wide2" style="transition-delay: 0.2s;">
+            <div class="m-ph" style="background: none;">
+              <video data-av-lazy muted loop playsinline class="m-video-bg" preload="none" poster={cloudinaryPoster(portfolioVideos[2])}>
+                <source src={portfolioVideos[2]} type="video/mp4" />
+              </video>
+              <div class="m-ph-inner">
+                <div class="m-type-tag">▶ VIDEO</div>
+                <span class="m-ph-label font-heading">Brand Launch</span>
+                <span class="m-ph-meta">Video · 16:9 · 1:45 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal-hidden m-item m-sq" style="transition-delay: 0.22s;">
+            <div class="m-ph" style="background: none;">
+              <img src={portfolioMasonryFotos[3]} srcset={masonryImgSrcset(portfolioMasonryFotos[3])} sizes={masonryImgSizes} alt="" class="m-img-bg" loading="lazy" decoding="async" width="600" height="600" />
+              <div class="m-ph-inner">
+                <div class="m-type-tag">◉ PHOTO</div>
+                <span class="m-ph-label font-heading">Behind the Scenes</span>
+                <span class="m-ph-meta">Photography · Square</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SERVICES ──────────────────────────────────────────────── -->
+    <section style="background: var(--card); padding: clamp(80px, 10vw, 120px) 24px;">
+      <div style="max-width: 1280px; margin: 0 auto;">
+
+        <div class="reveal-hidden" style="margin-bottom: 8px;">
+          <div class="eyebrow"><span class="dot"></span>What we produce</div>
+        </div>
+        <div class="reveal-hidden" style="margin-bottom: 56px; transition-delay: 0.05s;">
+          <h2 class="font-heading" style="font-size: clamp(2.2rem, 5vw, 4rem); line-height: 0.92; text-transform: uppercase; margin: 0;">
+            Production from<br /><span style="color: var(--accent);">start to finish.</span>
+          </h2>
+        </div>
+
+        <div class="srv-grid">
+          {servicios.map((s, i) => (
+            <div class="reveal-hidden srv-card" style={`transition-delay: ${(i % 3) * 0.08}s;`}>
+              <div class="srv-img-ph">
+                {i % 2 === 0 && (
+                  <video data-av-lazy muted loop playsinline class="srv-video-bg" preload="none" poster={cloudinaryPoster(portfolioVideos[Math.floor(i / 2)])}>
+                    <source src={portfolioVideos[Math.floor(i / 2)]} type="video/mp4" />
+                  </video>
+                )}
+                {i % 2 !== 0 && (() => {
+                  const idx = Math.floor(i / 2);
+                  const img = portfolioFotos[idx];
+                  const img400 = img.replace('/upload/', '/upload/f_auto,q_auto,w_400/');
+                  const img800 = img.replace('/upload/', '/upload/f_auto,q_auto,w_800/');
+                  return <img src={img} srcset={`${img400} 400w, ${img800} 800w`} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="" class="srv-foto-bg" loading="lazy" decoding="async" width="640" height="480" />;
+                })()}
+              </div>
+              <div class="srv-info">
+                <h3 class="font-heading srv-titulo">{s.titulo}</h3>
+                <p class="srv-desc">{s.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── BEHIND THE SCENES STRIP ────────────────────────────────── -->
+    <section style="background: var(--bg); padding: clamp(60px, 8vw, 100px) 0;">
+      <div style="max-width: 1280px; margin: 0 auto; padding: 0 24px;">
+        <div class="reveal-hidden" style="margin-bottom: 40px;">
+          <div class="eyebrow" style="margin-bottom: 12px;"><span class="dot"></span>On set</div>
+          <h2 class="font-heading" style="font-size: clamp(1.8rem, 3.5vw, 3rem); line-height: 0.95; text-transform: uppercase; margin: 0;">
+            Behind the <span style="color: var(--accent);">camera.</span>
+          </h2>
+        </div>
+      </div>
+
+      <div class="bts-scroll">
+        <div class="bts-track">
+          {[
+            { label: 'On-set production', meta: 'Behind the scenes' },
+            { label: 'Lighting & camera', meta: 'Technical setup' },
+            { label: 'Art direction', meta: 'Pre-production' },
+            { label: 'Editing & color', meta: 'Post-production' },
+            { label: 'Audio recording', meta: 'Sound' },
+            { label: 'Outdoor location', meta: 'Outdoor shoot' },
+          ].map((item, i) => (
+            <div class="bts-item">
+              <div class="bts-ph">
+                <img src={btsFotos[i]} srcset={btsImgSrcset(btsFotos[i])} sizes={btsImgSizes} alt={item.label} class="bts-img-bg" loading="lazy" decoding="async" width="600" height="450" />
+                <div class="bts-ph-overlay">
+                  <span class="bts-ph-label font-heading">{item.label}</span>
+                  <span class="bts-ph-meta">{item.meta}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STATS ──────────────────────────────────────────────────── -->
+    <section style="background: var(--card); padding: clamp(60px, 8vw, 100px) 24px;">
+      <div style="max-width: 1280px; margin: 0 auto;">
+        <div class="stats-row">
+          {stats.map((s, i) => (
+            <div class="reveal-hidden stat-cell" style={`transition-delay: ${i * 0.1}s;`}>
+              <div class="stat-val font-heading">{s.val}</div>
+              <div class="stat-sep" aria-hidden="true"></div>
+              <div class="stat-label">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FINAL CTA ─────────────────────────────────────────────── -->
+    <section class="final-cta">
+      <div class="cta-grain" aria-hidden="true"></div>
+      <div class="final-cta-inner">
+        <div class="reveal-hidden">
+          <div class="eyebrow accent" style="justify-content: center; margin-bottom: 28px;">
+            <span class="dot"></span>Let's start filming
+          </div>
+        </div>
+        <div class="reveal-hidden" style="transition-delay: 0.1s;">
+          <h2 class="font-heading final-h2">
+            Your next project<br />
+            <span class="h2-outline">deserves to look</span><br />
+            this good.
+          </h2>
+        </div>
+        <div class="reveal-hidden" style="transition-delay: 0.2s; margin-top: 40px;">
+          <a href="https://wa.me/50689000108" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 1.1rem 2.4rem; font-size: 0.85rem;">
+            Talk about your project
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <CtaFooter lang="en" />
+  </main>
+</Layout>
+
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0 24px;
+  }
+
+  .grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    background-repeat: repeat;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: clamp(90px, 12vh, 130px);
+    padding-bottom: clamp(50px, 7vh, 90px);
+    gap: clamp(20px, 3.5vh, 40px);
+  }
+
+  .hero-top {
+    text-align: center;
+  }
+
+  .hero-h1 {
+    font-size: clamp(2.6rem, 8vw, 7rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: var(--fg);
+    margin: 0;
+    letter-spacing: 0.01em;
+  }
+
+  .h1-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--fg);
+  }
+
+  .film-frame-wrap {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.06),
+      0 40px 120px rgba(0,0,0,0.7),
+      0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  .film-strip {
+    width: 16px;
+    flex-shrink: 0;
+    background: #0e0e0e;
+    position: relative;
+    overflow: hidden;
+  }
+  @media (min-width: 480px) { .film-strip { width: 22px; } }
+  @media (min-width: 768px) { .film-strip { width: 28px; } }
+  .sprocket-holes {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      180deg,
+      transparent 0px,
+      transparent 5px,
+      rgba(255, 255, 255, 0.08) 5px,
+      rgba(255, 255, 255, 0.08) 17px,
+      transparent 17px,
+      transparent 26px
+    );
+    background-size: 14px 26px;
+    background-position: center 13px;
+    background-repeat: repeat-y;
+  }
+
+  .film-viewport {
+    flex: 1;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    background: #080808;
+    border-left: 1px solid rgba(255,255,255,0.04);
+    border-right: 1px solid rgba(255,255,255,0.04);
+    overflow: hidden;
+  }
+
+  .main-ph {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 60%),
+      repeating-linear-gradient(
+        -45deg,
+        transparent 0, transparent 24px,
+        rgba(255,255,255,0.012) 24px, rgba(255,255,255,0.012) 25px
+      );
+  }
+
+  .ph-play {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    margin-bottom: 8px;
+    backdrop-filter: blur(8px);
+    background: rgba(232,119,34,0.08);
+    transition: transform 0.3s, background 0.3s;
+  }
+  .film-viewport:hover .ph-play {
+    transform: scale(1.08);
+    background: rgba(232,119,34,0.16);
+  }
+
+  .ph-label {
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted-stronger);
+  }
+
+  .ph-meta {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft-text);
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .cap-strip {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 16px 0;
+    background: var(--card);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .cap-track {
+    display: inline-block;
+    animation: cap-scroll 45s linear infinite;
+  }
+  .cap-item {
+    font-size: clamp(0.65rem, 1vw, 0.8rem);
+    letter-spacing: 0.2em;
+    color: var(--muted);
+  }
+  .cap-sep {
+    margin: 0 22px;
+    color: var(--accent);
+    opacity: 0.6;
+  }
+  @keyframes cap-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-25%); }
+  }
+
+  .port-header {
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .port-h2 {
+    font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .masonry {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 240px;
+    gap: 8px;
+  }
+  @media (max-width: 768px) {
+    .masonry {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 160px;
+    }
+    .m-wide  { grid-column: span 2; }
+    .m-wide2 { grid-column: span 2; }
+    .masonry > :last-child { grid-column: 1 / -1; }
+  }
+  @media (max-width: 520px) {
+    .masonry {
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 140px;
+    }
+  }
+  @media (max-width: 380px) {
+    .masonry {
+      grid-template-columns: 1fr;
+      grid-auto-rows: 180px;
+    }
+    .m-wide, .m-tall, .m-wide2, .m-sq {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+    .masonry > :last-child {
+      grid-column: span 1;
+    }
+  }
+
+  .m-wide  { grid-column: span 2; }
+  .m-tall  { grid-row: span 2; }
+  .m-wide2 { grid-column: span 2; }
+
+  .m-item {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    cursor: default;
+  }
+  .m-item:hover .m-ph-inner {
+    opacity: 1;
+  }
+
+  .m-video-bg,
+  .m-img-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, opacity 0.4s;
+  }
+  .m-video-bg {
+    opacity: 0.6;
+  }
+  .m-item:hover .m-video-bg {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+  .m-item:hover .m-img-bg {
+    transform: scale(1.05);
+  }
+
+  .m-ph {
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        transparent 0, transparent 22px,
+        rgba(255,255,255,0.012) 22px, rgba(255,255,255,0.012) 23px
+      );
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .m-ph-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+
+  .m-type-tag {
+    font-family: var(--font-body);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .m-ph-label {
+    font-size: clamp(0.75rem, 1.8vw, 1.1rem);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--fg);
+    line-height: 1.1;
+  }
+
+  .m-ph-meta {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    color: var(--soft-text);
+    text-transform: uppercase;
+  }
+
+  .srv-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media (min-width: 640px) {
+    .srv-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1024px) {
+    .srv-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .srv-card {
+    background: var(--bg);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .srv-card:hover {
+    border-color: var(--hairline-strong);
+    transform: translateY(-3px);
+  }
+
+  .srv-img-ph {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: #0d0d0d;
+    overflow: hidden;
+  }
+  .srv-video-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .srv-card:hover .srv-video-bg {
+    transform: scale(1.05);
+  }
+  .srv-foto-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .srv-card:hover .srv-foto-bg {
+    transform: scale(1.05);
+  }
+
+  .srv-info {
+    padding: 20px;
+  }
+  .srv-titulo {
+    font-size: clamp(1.1rem, 2.8vw, 1.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin: 0 0 8px;
+    line-height: 1.05;
+    color: var(--fg);
+  }
+  .srv-desc {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: var(--muted);
+    margin: 0;
+    font-weight: 300;
+  }
+
+  .bts-scroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 24px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .bts-scroll::-webkit-scrollbar { display: none; }
+
+  .bts-track {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+    padding-bottom: 4px;
+  }
+
+  .bts-item {
+    flex-shrink: 0;
+    width: clamp(220px, 28vw, 320px);
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--hairline);
+    cursor: default;
+  }
+  .bts-item:hover .bts-img-bg {
+    transform: scale(1.05);
+  }
+  .bts-item:hover .bts-ph-overlay {
+    opacity: 1;
+  }
+
+  .bts-ph {
+    position: absolute;
+    inset: 0;
+    background: var(--card);
+  }
+
+  .bts-img-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .bts-ph-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(0,0,0,0.4);
+    opacity: 0.75;
+    transition: opacity 0.3s;
+  }
+
+  .bts-ph-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--fg);
+    text-align: center;
+    padding: 0 12px;
+  }
+  .bts-ph-meta {
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  @media (max-width: 540px) {
+    .stats-row { grid-template-columns: 1fr; }
+  }
+
+  .stat-cell {
+    background: var(--card);
+    padding: clamp(28px, 4vw, 48px) clamp(24px, 3vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .stat-val {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-sep {
+    width: 28px;
+    height: 2px;
+    background: var(--hairline-strong);
+  }
+
+  .stat-label {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  .final-cta {
+    position: relative;
+    background: var(--bg);
+    padding: clamp(100px, 16vw, 160px) 24px;
+    text-align: center;
+    overflow: hidden;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .cta-grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  .final-cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .final-h2 {
+    font-size: clamp(3rem, 7.5vw, 6.5rem);
+    line-height: 0.88;
+    text-transform: uppercase;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .h2-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--fg);
+  }
+</style>
+
+<script>
+(function() {
+  var supportsIO = typeof IntersectionObserver !== 'undefined';
+
+  var videos = /** @type {NodeListOf<HTMLVideoElement>} */ (document.querySelectorAll('video[data-av-lazy]'));
+
+  if (videos.length === 0) return;
+
+  if (supportsIO) {
+    var videoObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        var v = /** @type {HTMLVideoElement} */ (entry.target);
+        if (entry.isIntersecting) {
+          if (!v.hasAttribute('data-av-loaded')) {
+            v.setAttribute('data-av-loaded', '');
+            v.preload = 'auto';
+            v.load();
+          }
+          var p = v.play();
+          if (p && typeof p.catch === 'function') {
+            p.catch(function() {});
+          }
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '400px 0px' });
+
+    Array.from(videos).forEach(function(v) { videoObserver.observe(v); });
+  } else {
+    Array.from(videos).forEach(function(v) {
+      v.preload = 'auto';
+      v.load();
+    });
+  }
+})();
+</script>

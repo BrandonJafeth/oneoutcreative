@@ -1,17 +1,34 @@
 ---
-const NAV_LINKS = [
-  { label: 'Audiovisual', href: '/audiovisual' },
-  { label: 'Marketing', href: '/marketing' },
-  { label: 'Sistemas Web', href: '/sistemas-web' },
-  { label: 'Diseño & Marca', href: '/diseno-marca' },
-];
+interface Props {
+  lang?: 'es-CR' | 'en';
+}
+const { lang = 'es-CR' } = Astro.props;
+
+const NAV_LINKS = lang === 'en'
+  ? [
+      { label: 'Photo & Video', href: '/en/audiovisual' },
+      { label: 'Marketing', href: '/en/marketing' },
+      { label: 'Web', href: '/en/sistemas-web' },
+      { label: 'Branding', href: '/en/diseno-marca' },
+    ]
+  : [
+      { label: 'Audiovisual', href: '/audiovisual' },
+      { label: 'Marketing', href: '/marketing' },
+      { label: 'Sistemas Web', href: '/sistemas-web' },
+      { label: 'Diseño & Marca', href: '/diseno-marca' },
+    ];
+
+const logoHref = lang === 'en' ? '/en/' : '/';
+const ctaText = lang === 'en' ? 'Contact' : 'Contactar';
+const langToggleHref = lang === 'en' ? '/' : '/en/';
+const langToggleLabel = lang === 'en' ? 'ES' : 'EN';
 ---
 <nav id="main-nav" class="font-body" style="position: fixed; top: 20px; left: 0; right: 0; z-index: 50; display: flex; justify-content: center; padding: 0 16px; transition: top .3s ease; color: var(--fg);">
   <div class="nav-shell" style="display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 10px 10px 10px 16px; max-width: 980px; width: 100%; transition: max-width .35s ease, padding .35s ease; border-radius: 9999px; background: rgba(var(--fg-rgb) / 0.03); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
     
     <div style="display: flex; align-items: center; gap: 18px;">
       <!-- Logo -->
-      <a href="/" aria-label="Volver al inicio" style="display: inline-flex; align-items: center; flex-shrink: 0; color: inherit; text-decoration: none;">
+      <a href={logoHref} aria-label="Home" style="display: inline-flex; align-items: center; flex-shrink: 0; color: inherit; text-decoration: none;">
         <img src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779290752/Logo_blanco_1_kintyq.png" alt="One Out Creative" id="nav-logo" style="display: block; width: 38px; height: 38px; object-fit: contain; filter: invert(0);" />
       </a>
 
@@ -33,11 +50,20 @@ const NAV_LINKS = [
 
     <!-- CTA & Hamburger -->
     <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+      <!-- Language toggle -->
+      <a
+        href={langToggleHref}
+        class="hidden md:inline-flex"
+        style="font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; font-family: var(--font-body); color: var(--muted); text-decoration: none; padding: 5px 10px; border-radius: 9999px; border: 1px solid var(--hairline); transition: color .2s, border-color .2s;"
+        onmouseover="this.style.color='var(--fg)';this.style.borderColor='var(--hairline-strong)'"
+        onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--hairline)'"
+      >{langToggleLabel}</a>
+
       <a href="https://wa.me/50689000108" target="_blank" rel="noopener noreferrer" class="btn-primary">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
         </svg>
-        <span class="cta-text hidden md:inline">Contactar</span>
+        <span class="cta-text hidden md:inline">{ctaText}</span>
       </a>
 
       <!-- Hamburger Button (Mobile Only) -->

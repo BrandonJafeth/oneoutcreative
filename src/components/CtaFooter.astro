@@ -1,5 +1,31 @@
 ---
+interface Props {
+  lang?: 'es-CR' | 'en';
+}
+const { lang = 'es-CR' } = Astro.props;
 const year = new Date().getFullYear();
+
+const t = lang === 'en'
+  ? {
+      eyebrow: 'Start today',
+      heading: 'Ready to',
+      headingAccent: 'grow?',
+      body: "Let's talk about your business. No commitment, no endless forms. One call is enough to know if we're the team you need.",
+      cta: 'Contact',
+      statLabel: 'Average growth',
+      statSub: 'in the first 6 months',
+      copyright: 'All rights reserved.',
+    }
+  : {
+      eyebrow: 'Empezá hoy',
+      heading: '¿Listo para',
+      headingAccent: 'crecer?',
+      body: 'Hablemos de tu negocio. Sin compromiso, sin formularios interminables. Una llamada es suficiente para saber si somos el equipo que necesitás.',
+      cta: 'Contactar',
+      statLabel: 'Crecimiento promedio',
+      statSub: 'en los primeros 6 meses',
+      copyright: 'Todos los derechos reservados.',
+    };
 ---
 <section id="nosotros" style="background: var(--bg); padding-top: clamp(60px, 10vw, 120px); position: relative; overflow: hidden;">
   <div aria-hidden="true" style="position: absolute; top: -40px; left: 50%; transform: translateX(-50%); width: 700px; height: 380px; border-radius: 9999px; background: radial-gradient(ellipse, rgba(232,119,34,0.14), transparent 70%); filter: blur(60px); pointer-events: none;"></div>
@@ -8,16 +34,16 @@ const year = new Date().getFullYear();
     <div class="cta-editorial">
       <div>
         <div class="reveal-hidden delay-0">
-          <div class="eyebrow accent">Empezá hoy</div>
+          <div class="eyebrow accent">{t.eyebrow}</div>
         </div>
         <div class="reveal-hidden delay-1">
           <h2 class="font-heading" style="font-size: clamp(3.5rem, 8vw, 6.5rem); line-height: 0.9; letter-spacing: 0.02em; text-transform: uppercase; color: var(--fg); margin: 20px 0 0;">
-            ¿Listo para<br /><span style="color: var(--accent);">crecer?</span>
+            {t.heading}<br /><span style="color: var(--accent);">{t.headingAccent}</span>
           </h2>
         </div>
         <div class="reveal-hidden delay-2">
           <p style="margin-top: 24px; font-weight: 300; font-size: 1rem; color: var(--muted); max-width: 460px; line-height: 1.65; font-family: var(--font-body);">
-            Hablemos de tu negocio. Sin compromiso, sin formularios interminables. Una llamada es suficiente para saber si somos el equipo que necesitás.
+            {t.body}
           </p>
         </div>
         <div class="reveal-hidden delay-3">
@@ -26,7 +52,7 @@ const year = new Date().getFullYear();
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
               </svg>
-              <span class="whitespace-nowrap">Contactar</span>
+              <span class="whitespace-nowrap">{t.cta}</span>
             </a>
             <a href="https://www.instagram.com/one.out_/" target="_blank" rel="noopener noreferrer" class="btn-ghost liquid-glass-strong flex-1 md:flex-none justify-center items-center gap-2">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0">
@@ -44,8 +70,8 @@ const year = new Date().getFullYear();
         <div class="cta-visual" style="min-height: auto; align-items: center;">
           <div style="position: relative; z-index: 2; text-align: center;">
             <div class="cta-stat-val">300%</div>
-            <div style="margin-top: 16px; font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); font-weight: 500; font-family: var(--font-body);">Crecimiento promedio</div>
-            <div style="margin-top: 8px; font-size: 0.7rem; color: var(--soft-text); font-weight: 300; font-family: var(--font-body);">en los primeros 6 meses</div>
+            <div style="margin-top: 16px; font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); font-weight: 500; font-family: var(--font-body);">{t.statLabel}</div>
+            <div style="margin-top: 8px; font-size: 0.7rem; color: var(--soft-text); font-weight: 300; font-family: var(--font-body);">{t.statSub}</div>
           </div>
         </div>
       </div>
@@ -62,7 +88,7 @@ const year = new Date().getFullYear();
 
   <footer class="footer-bar relative z-10 w-full max-w-[1280px] mx-auto px-6 pt-12 flex flex-col md:flex-row justify-between items-center gap-8 font-body">
     <div class="flex flex-col items-center md:flex-row md:items-center gap-4 text-center md:text-left text-[var(--soft-text)] text-[0.8rem]">
-      <span class="max-w-[250px] md:max-w-none leading-relaxed">© {year} One Out Creative. Todos los derechos reservados.</span>
+      <span class="max-w-[250px] md:max-w-none leading-relaxed">© {year} One Out Creative. {t.copyright}</span>
       <span aria-hidden="true" class="hidden md:inline opacity-30">·</span>
       <span>Guanacaste, Costa Rica · <a href="tel:+50689000108" class="hover:text-[var(--fg)] transition-colors">+506 8900-0108</a></span>
     </div>

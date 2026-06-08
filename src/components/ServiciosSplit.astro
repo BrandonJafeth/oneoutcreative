@@ -1,14 +1,36 @@
 ---
-import services from '../data/servicios.json';
+import defaultServices from '../data/servicios.json';
+
+interface ServiceItem {
+  eyebrow: string;
+  kind: string;
+  title: string;
+  body: string;
+  image: string;
+  href?: string;
+}
+interface Props {
+  data?: ServiceItem[];
+  eyebrow?: string;
+  heading?: string;
+  subtext?: string;
+}
+const {
+  data,
+  eyebrow = 'Lo que hacemos',
+  heading = 'Todo lo que tu negocio necesita',
+  subtext = 'Creación audiovisual de primera línea y marketing como enfoque principal, respaldado por sitios web optimizados y un diseño de marca memorable.',
+} = Astro.props;
+const services = data ?? defaultServices;
 ---
 <section id="servicios" style="background: var(--bg); padding: clamp(60px, 10vw, 120px) 24px;">
   <div style="max-width: 1200px; margin: 0 auto;">
     <div style="display: grid; grid-template-columns: 1fr; gap: 20px; align-items: end; margin-bottom: 56px;">
       <div class="reveal-hidden delay-0">
-        <div class="eyebrow"><span class="dot"></span>Lo que hacemos</div>
-        <h2 class="sec-heading" style="margin-top: 14px; max-width: 800px;">Todo lo que tu negocio necesita</h2>
+        <div class="eyebrow"><span class="dot"></span>{eyebrow}</div>
+        <h2 class="sec-heading" style="margin-top: 14px; max-width: 800px;">{heading}</h2>
         <p style="font-weight: 300; color: var(--muted); font-size: 1.05rem; line-height: 1.65; max-width: 600px; margin-top: 24px; font-family: var(--font-body); text-wrap: pretty;">
-          Creación audiovisual de primera línea y marketing como enfoque principal, respaldado por sitios web optimizados y un diseño de marca memorable.
+          {subtext}
         </p>
       </div>
     </div>

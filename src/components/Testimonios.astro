@@ -1,5 +1,17 @@
 ---
-import testimonios from '../data/testimonios.json';
+import defaultTestimonios from '../data/testimonios.json';
+
+interface Props {
+  label?: string;
+  heading?: string;
+  subheading?: string;
+}
+const {
+  label = 'Lo que dicen nuestros clientes',
+  heading = 'Resultados que hablan solos',
+} = Astro.props;
+
+const testimonios = defaultTestimonios;
 const [t1raw, t2raw, t3raw] = testimonios;
 const t1 = { q: t1raw.quote, n: t1raw.name, r: t1raw.role, metric: t1raw.metric };
 const t2 = { q: t2raw.quote, n: t2raw.name, r: t2raw.role };
@@ -9,10 +21,10 @@ const t3 = { q: t3raw.quote, n: t3raw.name, r: t3raw.role };
   <div style="max-width: 1200px; margin: 0 auto;">
     <div style="text-align: center; max-width: 820px; margin: 0 auto 64px;">
       <div class="reveal-hidden delay-0">
-        <div class="eyebrow"><span class="dot"></span>Lo que dicen nuestros clientes</div>
+        <div class="eyebrow"><span class="dot"></span>{label}</div>
       </div>
       <div class="reveal-hidden delay-1">
-        <h2 class="sec-heading" style="margin-top: 14px;">Resultados que hablan solos</h2>
+        <h2 class="sec-heading" style="margin-top: 14px;">{heading}</h2>
       </div>
     </div>
 

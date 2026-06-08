@@ -1,0 +1,34 @@
+[
+  {
+    "eyebrow": "Content",
+    "kind": "Photo & Video",
+    "title": "Visuals that make people stop scrolling.",
+    "body": "Photography, drone video, and creative direction that capture your brand at the highest level. Built for social media, websites, and real estate listings.",
+    "image": "https://res.cloudinary.com/dxvbifdfb/image/upload/f_auto,q_auto,w_800/v1768681994/gallery/ol28g8i9sl4doaxnotj3.jpg",
+    "href": "/audiovisual"
+  },
+  {
+    "eyebrow": "Strategy",
+    "kind": "Digital Marketing",
+    "title": "Get found by the right people.",
+    "body": "Social media management, Meta Ads, Google Ads, and content strategy in English and Spanish. Every action has a measurable purpose — focused on real revenue.",
+    "image": "https://res.cloudinary.com/dxvbifdfb/image/upload/f_auto,q_auto,w_800/v1768702185/gallery/wntzftpd5lsnswt8ze4e.jpg",
+    "href": "/marketing"
+  },
+  {
+    "eyebrow": "Tech",
+    "kind": "Web Development",
+    "title": "A website that works as hard as you do.",
+    "body": "Fast, modern websites built to convert visitors into clients. Mobile-first, SEO-optimized, and designed to grow your business.",
+    "image": "https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_800/v1777499085/520shots_so_lfogrw.jpg",
+    "href": "/sistemas-web"
+  },
+  {
+    "eyebrow": "Identity",
+    "kind": "Brand Design",
+    "title": "A brand worth remembering.",
+    "body": "Visual identity, logo design, and brand guidelines that build trust, communicate quality, and separate you from every competitor in the market.",
+    "image": "https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_800/v1779745654/identidad-visual_yd23y7.jpg",
+    "href": "/diseno-marca"
+  }
+]

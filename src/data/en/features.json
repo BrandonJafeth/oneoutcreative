@@ -1,0 +1,32 @@
+[
+  {
+    "titulo": "Photo & Video",
+    "texto": "Commercial photography, drone video, real estate, weddings, and events. All edited and delivered within 48 hours.",
+    "icon": "video"
+  },
+  {
+    "titulo": "Digital Marketing",
+    "texto": "Social media management, Meta Ads, and Google Ads driven by real data — not vanity metrics. Measurable results from day one.",
+    "icon": "barchart"
+  },
+  {
+    "titulo": "Web Development",
+    "texto": "Fast, modern websites that convert visitors into clients. Mobile-first, SEO-ready, and built to scale.",
+    "icon": "globe"
+  },
+  {
+    "titulo": "Brand Design",
+    "texto": "Visual identity, logo, and brand guidelines that build trust and set you apart from the competition.",
+    "icon": "layers"
+  },
+  {
+    "titulo": "Automation",
+    "texto": "Systems that work for you 24/7. CRMs, automated flows, and tools that save time and reduce operational cost.",
+    "icon": "settings"
+  },
+  {
+    "titulo": "SEO",
+    "texto": "Rank where your clients are searching — Google, Maps, and AI-powered search. Organic traffic that compounds month over month.",
+    "icon": "search"
+  }
+]
