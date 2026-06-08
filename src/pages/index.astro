@@ -8,8 +8,19 @@ import ServiciosSplit from '../components/ServiciosSplit.astro';
 import Testimonios from '../components/Testimonios.astro';
 import FAQ from '../components/FAQ.astro';
 import CtaFooter from '../components/CtaFooter.astro';
+import faqs from '../data/faqs.json';
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.pregunta,
+    "acceptedAnswer": { "@type": "Answer", "text": f.respuesta }
+  }))
+});
 ---
-<Layout>
+<Layout schema={faqSchema}>
   <Navbar />
   <main>
     <Hero />

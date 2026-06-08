@@ -400,17 +400,15 @@ body {
 }
 
 .reveal-hidden, .reveal-visible {
-  transition: all 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform, filter; /* Optimización GPU Desktop */
+  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
 }
 .reveal-hidden {
   opacity: 0;
-  transform: translateY(32px);
-  filter: blur(8px);
+  transform: translateY(28px);
 }
 .reveal-visible {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0);
 }
 

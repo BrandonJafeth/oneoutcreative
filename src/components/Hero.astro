@@ -1,11 +1,11 @@
 ---
 const VIDEO_MP4 = 'https://res.cloudinary.com/dkwvaxxdw/video/upload/v1779291255/8126637-hd_1920_1080_25fps_knqueu.mp4';
-const HERO_POSTER = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/v1779291512/pexels-silverkblack-36697542_gbzfwm.jpg';
+const HERO_POSTER = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_1920/v1779291512/pexels-silverkblack-36697542_gbzfwm.jpg';
 ---
 <section id="top" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(120px, 15vh, 160px) 0 clamp(120px, 20vh, 160px); overflow: hidden;">
   <div class="hero-bg" aria-hidden="true">
     <!-- Video background -->
-    <video autoplay muted loop playsinline poster={HERO_POSTER} aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-40">
+    <video autoplay muted loop playsinline preload="none" poster={HERO_POSTER} aria-hidden="true" class="absolute inset-0 w-full h-full object-cover opacity-40">
       <source src={VIDEO_MP4} type="video/mp4" />
     </video>
     <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.95) 100%); pointer-events: none;"></div>
@@ -13,6 +13,9 @@ const HERO_POSTER = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/v17792915
   </div>
 
   <div style="position: relative; z-index: 3; text-align: center; padding: 0 24px; max-width: 1200px; margin: 0 auto; width: 100%;">
+    <div class="reveal-hidden delay-0" style="margin-bottom: 28px;">
+      <div class="eyebrow accent" style="justify-content: center;"><span class="dot"></span>Agencia de Marketing Digital · San José, Costa Rica</div>
+    </div>
     <h1 class="hero-heading" style="margin-top: 0; color: #fff;">
       <span style="display: block; overflow: hidden;">
         <span class="reveal-hidden delay-1" style="display: inline-block; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,0.35);">TU MARCA</span>
@@ -27,8 +30,8 @@ const HERO_POSTER = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/v17792915
 
     <div class="reveal-hidden delay-4">
       <p style="font-weight: 300; font-size: 1.05rem; line-height: 1.65; color: rgba(255,255,255,0.78); max-width: 600px; margin: 24px auto 0; text-wrap: pretty; text-shadow: 0 1px 12px rgba(0,0,0,0.4); font-family: var(--font-body);">
-        Creamos contenido audiovisual de alto nivel y estrategias de marketing que atrapan la atención.<br />
-        Producción profesional enfocada en multiplicar el alcance y las metas de tu marca.
+        La agencia de marketing y producción audiovisual en San José, Costa Rica<br />
+        que convierte tu marca en el referente que domina su industria.
       </p>
     </div>
 
@@ -39,7 +42,7 @@ const HERO_POSTER = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/v17792915
         </svg>
         Hablemos por WhatsApp
       </a>
-      <a href="#proyectos" class="btn-ghost liquid-glass-strong" style="color: #fff;">Ver Proyectos</a>
+      <a href="https://solutions.oneoutcr.net/" target="_blank" rel="noopener noreferrer" class="btn-ghost liquid-glass-strong" style="color: #fff;">Ver Proyectos</a>
     </div>
   </div>
 
@@ -78,15 +81,3 @@ const HERO_POSTER = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/v17792915
   }
 </style>
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('reveal-visible');
-        entry.target.classList.remove('reveal-hidden');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-  
-  document.querySelectorAll('.reveal-hidden').forEach(el => observer.observe(el));
-</script>
