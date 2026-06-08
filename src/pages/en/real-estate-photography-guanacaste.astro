@@ -1,0 +1,271 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CtaFooter from '../../components/CtaFooter.astro';
+
+const HERO_BG = 'https://res.cloudinary.com/dxrzwnjee/image/upload/v1779757053/eqgwgqqqzmhlwj4vpofu.avif';
+
+const included = [
+  {
+    n: '01',
+    title: 'Interior & Exterior Photography',
+    desc: 'Full property shoot optimized for listing sites, social media, and printed brochures. Every room, every angle, in the best available natural light.',
+  },
+  {
+    n: '02',
+    title: 'Aerial Drone Video & Stills',
+    desc: 'Cinematic 4K drone footage showcasing location, lot size, ocean views, and surroundings. FAA-equivalent certified pilot. Available across all Guanacaste.',
+  },
+  {
+    n: '03',
+    title: 'Video Walkthrough',
+    desc: 'Smooth interior walkthrough video edited for YouTube, MLS listings, and social media reels. Ideal for international buyers who cannot visit the property in person.',
+  },
+  {
+    n: '04',
+    title: '48h Turnaround',
+    desc: 'Edited photos and video delivered within 48 hours. Rush delivery available. All files web-optimized and print-ready.',
+  },
+];
+
+const zones = ['Nosara', 'Tamarindo', 'Playa Flamingo', 'Sámara', 'Santa Cruz', 'Nicoya', 'Playa del Coco', 'Papagayo'];
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://oneoutcr.net/en/real-estate-photography-guanacaste#service",
+      "name": "Real Estate Photography & Drone Video — Guanacaste, Costa Rica",
+      "description": "Professional real estate photography and cinematic drone video for properties in Nosara, Tamarindo, Playa Flamingo, and the entire Guanacaste coast. Interior/exterior photography, aerial drone stills and video, and video walkthroughs. 48h delivery.",
+      "provider": { "@id": "https://oneoutcr.net/#organization" },
+      "areaServed": [
+        { "@type": "City", "name": "Nosara", "addressCountry": "CR" },
+        { "@type": "City", "name": "Tamarindo", "addressCountry": "CR" },
+        { "@type": "City", "name": "Playa Flamingo", "addressCountry": "CR" },
+        { "@type": "City", "name": "Sámara", "addressCountry": "CR" },
+        { "@type": "AdministrativeArea", "name": "Guanacaste", "addressCountry": "CR" }
+      ],
+      "serviceType": "Real Estate Photography",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does real estate photography in Guanacaste cost?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pricing varies based on property size and whether drone video is included. Contact us via WhatsApp for a personalized quote — we respond within a few hours." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you cover drone photography in Nosara and Tamarindo?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. We provide drone photography and video across all of Guanacaste including Nosara, Tamarindo, Playa Flamingo, Sámara, Santa Cruz, and Papagayo." }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast do you deliver the photos and videos?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Standard delivery is within 48 hours. Rush delivery (24h) is available for time-sensitive listings." }
+        }
+      ]
+    }
+  ]
+});
+---
+<Layout
+  title="Real Estate Photography & Drone Video in Guanacaste, Costa Rica | One Out Creative"
+  description="Professional real estate photography and cinematic drone video in Guanacaste, Costa Rica. Serving Nosara, Tamarindo, Playa Flamingo, Sámara, and Santa Cruz. 48h delivery."
+  lang="en"
+  hreflangEn="https://oneoutcr.net/en/real-estate-photography-guanacaste"
+  schema={schema}
+>
+  <!-- Minimal nav for landing page conversion -->
+  <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; background: rgba(10,10,10,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--hairline);">
+    <a href="/en/" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+      <img
+        src="https://res.cloudinary.com/dkwvaxxdw/image/upload/c_pad,b_rgb:0a0a0a,w_140,h_36,f_png,q_auto/v1779290752/Logo_blanco_1_kintyq.png"
+        alt="One Out Creative"
+        width="112"
+        height="28"
+        loading="eager"
+        style="height: 28px; width: auto;"
+      />
+    </a>
+    <a href="https://wa.me/50689000108" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.78rem;">
+      Get a Free Quote
+    </a>
+  </nav>
+
+  <main id="top">
+
+    <!-- ── HERO ───────────────────────────────────────────────────── -->
+    <section style="position: relative; min-height: 92vh; display: flex; align-items: center; padding: clamp(120px, 15vh, 160px) 24px clamp(80px, 12vh, 120px); overflow: hidden;">
+      <div aria-hidden="true" style="position: absolute; inset: 0; z-index: 1;">
+        <img
+          src={HERO_BG}
+          alt=""
+          fetchpriority="high"
+          decoding="async"
+          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.45;"
+        />
+        <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.5) 60%, rgba(10,10,10,0.7) 100%);"></div>
+      </div>
+
+      <div style="position: relative; z-index: 3; max-width: 1200px; margin: 0 auto; width: 100%;">
+        <div class="reveal-hidden delay-0" style="margin-bottom: 28px;">
+          <div class="eyebrow accent"><span class="dot"></span>Real Estate Photography · Guanacaste, CR</div>
+        </div>
+
+        <h1 style="font-family: var(--font-heading); font-size: clamp(3rem, 8vw, 6.5rem); line-height: 0.95; letter-spacing: 0.02em; text-transform: uppercase; color: #fff; margin: 0; max-width: 900px;">
+          <span class="reveal-hidden delay-1" style="display: block; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,0.35);">REAL ESTATE</span>
+          <span class="reveal-hidden delay-2" style="display: block; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,0.35);">PHOTOGRAPHY</span>
+          <span class="reveal-hidden delay-3" style="display: block; color: var(--accent); text-shadow: 0 2px 30px rgba(232,119,34,0.35);">& DRONE VIDEO.</span>
+        </h1>
+
+        <div class="reveal-hidden delay-4" style="margin-top: 28px; max-width: 560px;">
+          <p style="font-weight: 300; font-size: 1.08rem; line-height: 1.7; color: rgba(255,255,255,0.82); font-family: var(--font-body); text-shadow: 0 1px 12px rgba(0,0,0,0.4);">
+            Showcase your Guanacaste property with stunning photography and cinematic drone video.
+            Faster sales. Higher perceived value. Serving Nosara, Tamarindo, Playa Flamingo, and the entire Pacific coast.
+          </p>
+        </div>
+
+        <div class="reveal-hidden delay-5" style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px;">
+          <a href="https://wa.me/50689000108" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Get a Free Quote
+          </a>
+          <a href="#what-is-included" class="btn-ghost liquid-glass-strong" style="color: #fff;">See what's included</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TRUST BAR ──────────────────────────────────────────────── -->
+    <section style="background: var(--card); padding: 28px 24px; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);">
+      <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 32px 56px; text-align: center;">
+        {[
+          { val: '48h', label: 'Photo delivery' },
+          { val: '4K', label: 'Drone video' },
+          { val: 'EN/ES', label: 'Bilingual team' },
+          { val: '5+', label: 'Years in Guanacaste' },
+        ].map((s) => (
+          <div>
+            <div style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--accent); line-height: 1; letter-spacing: 0.01em;">{s.val}</div>
+            <div style="margin-top: 4px; font-size: 0.78rem; color: var(--muted); font-family: var(--font-body); font-weight: 300; letter-spacing: 0.05em; text-transform: uppercase;">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ── WHAT'S INCLUDED ────────────────────────────────────────── -->
+    <section id="what-is-included" style="background: var(--bg); padding: clamp(60px, 10vw, 120px) 24px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="reveal-hidden delay-0" style="margin-bottom: 56px;">
+          <div class="eyebrow"><span class="dot"></span>What's included</div>
+          <h2 class="sec-heading" style="margin-top: 14px; max-width: 700px;">Everything a listing needs to sell.</h2>
+          <p style="font-weight: 300; color: var(--muted); font-size: 1.05rem; line-height: 1.65; max-width: 540px; margin-top: 24px; font-family: var(--font-body);">
+            One shoot, every asset. From listing photos to social reels to drone footage — all delivered within 48 hours.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+          {included.map((item) => (
+            <div class="reveal-hidden delay-0 liquid-glass" style="padding: 2rem; border-radius: 1rem;">
+              <div style="font-family: var(--font-heading); font-size: 0.75rem; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 16px;">{item.n}</div>
+              <h3 style="font-family: var(--font-heading); font-size: 1.35rem; text-transform: uppercase; letter-spacing: 0.02em; color: var(--fg); margin: 0 0 14px; line-height: 1.1;">{item.title}</h3>
+              <p style="font-weight: 300; font-size: 0.95rem; line-height: 1.7; color: var(--muted); font-family: var(--font-body); margin: 0;">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHY IT MATTERS ─────────────────────────────────────────── -->
+    <section style="background: var(--card); padding: clamp(60px, 10vw, 120px) 24px;">
+      <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+        <div class="reveal-hidden delay-0">
+          <div class="eyebrow"><span class="dot"></span>Why it matters</div>
+          <h2 class="sec-heading" style="margin-top: 14px;">Great photos sell properties faster — and for more.</h2>
+          <p style="font-weight: 300; color: var(--muted); font-size: 1.05rem; line-height: 1.75; margin-top: 24px; font-family: var(--font-body);">
+            Most buyers browsing Nosara or Tamarindo listings are doing so from abroad. Their first impression of your property happens on a screen. Professional photography and drone video aren't a luxury — they're the difference between a listing that generates inquiries and one that doesn't.
+          </p>
+          <p style="font-weight: 300; color: var(--muted); font-size: 1.05rem; line-height: 1.75; margin-top: 16px; font-family: var(--font-body);">
+            We understand the Guanacaste real estate market, the light at golden hour on the Pacific coast, and what international buyers need to see to make a decision.
+          </p>
+          <a href="https://wa.me/50689000108" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: inline-flex; margin-top: 32px;">
+            Book a shoot
+          </a>
+        </div>
+        <div class="reveal-hidden delay-1" style="aspect-ratio: 4/5; border-radius: 1rem; overflow: hidden;">
+          <img
+            src="https://res.cloudinary.com/dxrzwnjee/image/upload/v1779830312/nvloibahw7ybvwbuqcyx.avif"
+            alt="Real estate photography Guanacaste Costa Rica"
+            loading="lazy"
+            decoding="async"
+            style="width: 100%; height: 100%; object-fit: cover;"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ZONES WE SERVE ─────────────────────────────────────────── -->
+    <section style="background: var(--bg); padding: clamp(60px, 10vw, 120px) 24px;">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <div class="reveal-hidden delay-0">
+          <div class="eyebrow"><span class="dot"></span>Coverage area</div>
+          <h2 class="sec-heading" style="margin-top: 14px;">We go where your property is.</h2>
+          <p style="font-weight: 300; color: var(--muted); font-size: 1.05rem; line-height: 1.65; max-width: 520px; margin: 24px auto 0; font-family: var(--font-body);">
+            Based in Nicoya, we cover the entire Guanacaste province — no travel surcharge for most zones.
+          </p>
+        </div>
+        <div class="reveal-hidden delay-1" style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 40px;">
+          {zones.map((z) => (
+            <span class="liquid-glass" style="padding: 0.6rem 1.4rem; border-radius: 9999px; font-family: var(--font-body); font-size: 0.88rem; color: var(--fg);">{z}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ ────────────────────────────────────────────────────── -->
+    <section style="background: var(--card); padding: clamp(60px, 10vw, 120px) 24px;">
+      <div style="max-width: 780px; margin: 0 auto;">
+        <div class="reveal-hidden delay-0" style="margin-bottom: 48px; text-align: center;">
+          <div class="eyebrow"><span class="dot"></span>Common questions</div>
+          <h2 class="sec-heading" style="margin-top: 14px;">FAQ</h2>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          {[
+            { q: 'How much does real estate photography in Guanacaste cost?', a: 'Pricing varies based on property size and whether drone video is included. Contact us via WhatsApp for a personalized quote — we respond within a few hours.' },
+            { q: 'Do you cover drone photography in Nosara and Tamarindo?', a: 'Yes. We provide drone photography and video across all of Guanacaste including Nosara, Tamarindo, Playa Flamingo, Sámara, Santa Cruz, and Papagayo.' },
+            { q: 'How fast do you deliver the photos and videos?', a: 'Standard delivery is within 48 hours of the shoot. Rush delivery (24h) is available for time-sensitive listings.' },
+            { q: 'Can I use the photos for online listings, social media, and print?', a: 'Yes. All edited photos are delivered in high resolution (print-ready) and web-optimized versions. You have full usage rights for all your marketing needs.' },
+            { q: 'Do you also work with rental properties (Airbnb, VRBO)?', a: 'Absolutely. We work with vacation rentals, long-term rentals, and properties for sale. Great photography increases both listing views and booking rates.' },
+          ].map((item) => (
+            <details class="liquid-glass" style="border-radius: 0.75rem; padding: 1.5rem 1.75rem; cursor: pointer; margin-bottom: 2px;">
+              <summary style="font-family: var(--font-body); font-size: 1rem; font-weight: 500; color: var(--fg); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+                {item.q}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </summary>
+              <p style="margin: 16px 0 0; font-weight: 300; font-size: 0.97rem; line-height: 1.7; color: var(--muted); font-family: var(--font-body);">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CtaFooter />
+  </main>
+</Layout>
+
+<style>
+  @media (max-width: 768px) {
+    section > div[style*="grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 40px !important;
+    }
+  }
+</style>

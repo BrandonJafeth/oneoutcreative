@@ -6,11 +6,17 @@ interface Props {
   title?: string;
   description?: string;
   schema?: string;
+  lang?: 'es-CR' | 'en';
+  hreflangEs?: string;
+  hreflangEn?: string;
 }
 const {
   title = 'One Out Creative | Agencia de Marketing en Guanacaste, Costa Rica',
   description = 'Agencia de marketing digital y producción audiovisual en Guanacaste, Costa Rica. Fotos, videos, redes sociales y diseño de marca para negocios en Nicoya, Tamarindo, Nosara y toda la provincia.',
   schema,
+  lang = 'es-CR',
+  hreflangEs,
+  hreflangEn,
 } = Astro.props;
 
 const orgSchema = JSON.stringify({
@@ -86,7 +92,7 @@ const orgSchema = JSON.stringify({
 });
 ---
 <!DOCTYPE html>
-<html lang="es-CR">
+<html lang={lang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -101,9 +107,12 @@ const orgSchema = JSON.stringify({
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content="https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_1200/v1779291512/pexels-silverkblack-36697542_gbzfwm.jpg" />
-  <meta property="og:locale" content="es_CR" />
+  <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'es_CR'} />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href={Astro.url.href} />
+  {hreflangEs && <link rel="alternate" hreflang="es-cr" href={hreflangEs} />}
+  {hreflangEn && <link rel="alternate" hreflang="en" href={hreflangEn} />}
+  {(hreflangEs || hreflangEn) && <link rel="alternate" hreflang="x-default" href="https://oneoutcr.net/" />}
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
   <link rel="dns-prefetch" href="https://images.pexels.com" />
   <link rel="preload" as="image" href="https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_1920/v1779291512/pexels-silverkblack-36697542_gbzfwm.jpg" fetchpriority="high" />
