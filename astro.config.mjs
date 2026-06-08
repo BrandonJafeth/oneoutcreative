@@ -16,5 +16,15 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [react(), sitemap()],
+  integrations: [
+    react(),
+    sitemap({
+      serialize(item) {
+        return {
+          url: item.url,
+          lastmod: new Date().toISOString().split('T')[0],
+        };
+      },
+    }),
+  ],
 });
