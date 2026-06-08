@@ -8,8 +8,8 @@ interface Props {
   schema?: string;
 }
 const {
-  title = 'One Out Creative | Marketing Digital en San José, Costa Rica',
-  description = 'Agencia de marketing digital en San José, Costa Rica. Fotos, videos, redes sociales y diseño de marca que hacen crecer tu negocio.',
+  title = 'One Out Creative | Agencia de Marketing en Guanacaste, Costa Rica',
+  description = 'Agencia de marketing digital y producción audiovisual en Guanacaste, Costa Rica. Fotos, videos, redes sociales y diseño de marca para negocios en Nicoya, Tamarindo, Nosara y toda la provincia.',
   schema,
 } = Astro.props;
 
@@ -17,7 +17,7 @@ const orgSchema = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["Organization", "ProfessionalService"],
+      "@type": ["Organization", "MarketingAgency"],
       "@id": "https://oneoutcr.net/#organization",
       "name": "One Out Creative",
       "url": "https://oneoutcr.net/",
@@ -27,7 +27,7 @@ const orgSchema = JSON.stringify({
         "width": 512,
         "height": 512
       },
-      "description": "Agencia de marketing, publicidad, fotos y videos, redes sociales, sistemas web y diseño de marca en San José, Costa Rica. Clientes: Banco Nacional, REMAX Eco, Asobeiro, Nosara Lab, Emy Asociados, Pekenitos, Laboratorio Clínico Esquípulas, Blanco Largo.",
+      "description": "Agencia de marketing digital y producción audiovisual en Guanacaste, Costa Rica. Fotos, videos, redes sociales, sistemas web y diseño de marca para negocios en Nicoya, Tamarindo, Nosara y Santa Cruz. Clientes: Banco Nacional, REMAX Eco, Nosara Lab, Asobeiro, Emy Asociados, Pekenitos, Laboratorio Clínico Esquípulas, Blanco Largo.",
       "knowsAbout": [
         "Marketing Digital",
         "Producción Audiovisual",
@@ -38,23 +38,39 @@ const orgSchema = JSON.stringify({
         "Redes Sociales",
         "Meta Ads",
         "Google Ads",
-        "Publicidad Digital"
+        "Publicidad Digital",
+        "Fotografía de Bodas",
+        "Video Inmobiliario",
+        "Community Manager"
       ],
       "telephone": "+50689000108",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Av. 10, Catedral",
-        "addressLocality": "San José",
-        "addressRegion": "San José",
-        "postalCode": "10104",
+        "addressLocality": "Nicoya",
+        "addressRegion": "Guanacaste",
+        "postalCode": "50101",
         "addressCountry": "CR"
       },
-      "areaServed": { "@type": "Country", "name": "Costa Rica" },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.1483,
+        "longitude": -85.4521
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Guanacaste", "addressCountry": "CR" },
+        { "@type": "City", "name": "Nicoya", "addressCountry": "CR" },
+        { "@type": "City", "name": "Santa Cruz", "addressCountry": "CR" },
+        { "@type": "City", "name": "Tamarindo", "addressCountry": "CR" },
+        { "@type": "City", "name": "Nosara", "addressCountry": "CR" },
+        { "@type": "City", "name": "Sámara", "addressCountry": "CR" },
+        { "@type": "City", "name": "Playa Flamingo", "addressCountry": "CR" },
+        { "@type": "Country", "name": "Costa Rica" }
+      ],
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+50689000108",
         "contactType": "customer service",
-        "availableLanguage": "Spanish"
+        "availableLanguage": ["Spanish", "English"]
       },
       "sameAs": ["https://www.instagram.com/one.out_/"]
     },
@@ -75,8 +91,10 @@ const orgSchema = JSON.stringify({
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
-  <meta name="geo.region" content="CR-SJ" />
-  <meta name="geo.placename" content="San José, Costa Rica" />
+  <meta name="geo.region" content="CR-G" />
+  <meta name="geo.placename" content="Nicoya, Guanacaste, Costa Rica" />
+  <meta name="geo.position" content="10.1483;-85.4521" />
+  <meta name="ICBM" content="10.1483, -85.4521" />
   <meta name="theme-color" content="#0a0a0a" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={Astro.url.href} />
