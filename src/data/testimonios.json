@@ -1,18 +1,18 @@
 [
   {
-    "quote": "Antes teníamos una web que nadie visitaba. Con One Out Creative pasamos a recibir consultas todos los días. El proceso fue claro, rápido y los resultados superaron lo que esperábamos.",
-    "name": "Carlos Méndez",
-    "role": "Fundador, Ferretería El Maestro",
-    "metric": { "value": "+340%", "label": "Leads / mes" }
+    "quote": "Tienen una excelente visión para capturar momentos clave. Saben exactamente cuándo y dónde estar para obtener la mejor toma. Transmiten mucha confianza: discretos cuando deben serlo, pero siempre atentos a lo importante. Los recomiendo con los ojos cerrados.",
+    "name": "Jeycob Mayorga Fernandez",
+    "role": "Cliente · Cobertura de Evento",
+    "metric": { "value": "★★★★★", "label": "Reseña Google" }
   },
   {
-    "quote": "En tres meses duplicamos las ventas de nuestra tienda online. El equipo sabe lo que hace y se nota desde la primera reunión.",
-    "name": "Valeria Rodríguez",
-    "role": "Directora, Boutique Luna"
+    "quote": "No solo tomaron fotos, capturaron emociones, miradas, abrazos y sonrisas que quedarán guardadas para siempre. Cada imagen refleja la magia de ese día especial, y gracias a su talento podemos revivirlo una y otra vez.",
+    "name": "Sofía Rodríguez",
+    "role": "Cliente · Fotografía de Boda"
   },
   {
-    "quote": "Lo que más valoro es que no te venden humo. Te explican qué van a hacer, por qué, y te muestran los números. Eso genera confianza.",
-    "name": "Andrés Solano",
-    "role": "Gerente, Clínica Dental Solano"
+    "quote": "Las fotos superaron totalmente mis expectativas y la edición quedó espectacular. Cuidan hasta los detalles más mínimos: la luz, los ángulos y las expresiones. Cada colón invertido vale la pena, los recomiendo al 100%.",
+    "name": "Pia Marin Franceschi",
+    "role": "Cliente · Sesión Fotográfica"
   }
 ]
